@@ -43,7 +43,7 @@
       <section id="home" class="hero section">
         <div class="container hero-enter">
           <p class="location">
-            <span class="accent">$</span> Cape Town, South Africa
+            <span class="accent">$</span> whoami
           </p>
           <h1>Emmanuel Onwe<span class="accent">.</span></h1>
           <p class="title">Full-Stack Software Engineer</p>
@@ -55,6 +55,20 @@
             <a class="btn btn-signal" href="#projects">View My Work</a>
             <a class="btn btn-outline" href="#contact">Contact Me</a>
           </div>
+          <dl class="hero-meta">
+            <div class="hero-meta-item">
+              <dt>Current</dt>
+              <dd>Full-Stack Software Engineer</dd>
+            </div>
+            <div class="hero-meta-item">
+              <dt>Focus</dt>
+              <dd>Web Development / Full-Stack Development</dd>
+            </div>
+            <div class="hero-meta-item">
+              <dt>Since</dt>
+              <dd>2019</dd>
+            </div>
+          </dl>
         </div>
       </section>
 
@@ -291,55 +305,74 @@
         </div>
       </section>
 
-      <section id="contact" class="section section-muted">
-        <div class="container contact-grid">
-          <div class="fade-in">
-            <p class="section-label">// section_06</p>
-            <h2>Contact</h2>
-            <p class="contact-item">
-              <span>Email:</span>
-              <a href="mailto:cyberkuv@gmail.com">cyberkuv@gmail.com</a>
+      <section id="contact" class="section section-muted contact-section">
+        <div class="container">
+          <div class="contact-intro fade-in">
+            <p class="section-label contact-prompt">
+              <span class="accent">$</span> ./start-a-conversation
             </p>
-            <p class="contact-item">
-              <span>Phone:</span>
-              <a href="tel:+276065508756">+27 60 650 8756</a>
-            </p>
-            <p class="contact-item">
-              <span>GitHub:</span>
-              <a
-                href="https://github.com/OnweEmmanuel"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub profile"
-              >
-                GitHub Profile
-              </a>
-            </p>
-            <p class="contact-item">
-              <span>LinkedIn:</span>
-              <a
-                href="https://www.linkedin.com/in/emmanuel-onwe-97355a184/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn profile"
-              >
-                LinkedIn Profile
-              </a>
-            </p>
+            <h2 class="contact-headline">
+              Let's build something that works <span class="accent">beautifully.</span>
+            </h2>
+            <a class="contact-email-cta" href="mailto:cyberkuv@gmail.com">cyberkuv@gmail.com</a>
           </div>
 
-          <form class="contact-form card fade-in" action="#" method="post">
-            <label for="name">Name</label>
-            <input id="name" name="name" type="text" required />
+          <div class="contact-channels fade-in">
+            <a class="contact-channel" href="mailto:cyberkuv@gmail.com">
+              <span class="contact-channel-label">EMAIL</span>
+              <span class="contact-channel-value">cyberkuv@gmail.com</span>
+              <svg class="contact-channel-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="1.75" stroke-linecap="square" />
+              </svg>
+            </a>
+            <a class="contact-channel" href="tel:+276065508756">
+              <span class="contact-channel-label">PHONE</span>
+              <span class="contact-channel-value">+27 60 650 8756</span>
+              <svg class="contact-channel-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="1.75" stroke-linecap="square" />
+              </svg>
+            </a>
+            <a
+              class="contact-channel"
+              href="https://github.com/OnweEmmanuel"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="contact-channel-label">GITHUB</span>
+              <span class="contact-channel-value">GitHub Profile</span>
+              <svg class="contact-channel-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="1.75" stroke-linecap="square" />
+              </svg>
+            </a>
+            <a
+              class="contact-channel"
+              href="https://www.linkedin.com/in/emmanuel-onwe-97355a184/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="contact-channel-label">LINKEDIN</span>
+              <span class="contact-channel-value">LinkedIn Profile</span>
+              <svg class="contact-channel-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="1.75" stroke-linecap="square" />
+              </svg>
+            </a>
+          </div>
 
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" required />
+          <div class="contact-grid">
+            <form class="contact-form card fade-in" action="#" method="post">
+              <p class="section-label">// section_06</p>
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" required />
 
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" required />
 
-            <p class="form-note">Functionality coming soon.</p>
-          </form>
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+
+              <p class="form-note">Functionality coming soon.</p>
+            </form>
+          </div>
         </div>
       </section>
     </main>
@@ -348,24 +381,7 @@
       <div class="container footer-content">
         <p><span class="logo-prompt">~/</span>emmanuel.onwe</p>
         <p>&copy; <span id="year"></span> All rights reserved.</p>
-        <div class="footer-links">
-          <a
-            href="https://github.com/OnweEmmanuel"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub"
-          >
-            GitHub
-          </a>
-          <a
-            href="https://www.linkedin.com/in/emmanuel-onwe-97355a184/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-          >
-            LinkedIn
-          </a>
-        </div>
+        <p class="footer-location">Cape Town, South Africa</p>
       </div>
     </footer>
 
