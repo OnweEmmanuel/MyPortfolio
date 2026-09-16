@@ -101,3 +101,17 @@ if (navLinks) {
     }
   });
 }
+
+document.querySelectorAll("a[href^='mailto:']").forEach((link) => {
+  link.addEventListener("click", (event) => {
+    const webFallback = link.getAttribute("data-mail-web");
+    if (!webFallback) {
+      return;
+    }
+
+    // Many desktops have no mail app handler, so mailto appears to do nothing.
+    // Open Gmail compose in a new tab so the click always has a visible result.
+    event.preventDefault();
+    window.open(webFallback, "_blank", "noopener,noreferrer");
+  });
+});

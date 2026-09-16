@@ -51,8 +51,18 @@
             grow and operate better.
           </p>
           <div class="hero-actions">
-            <a class="btn btn-signal" href="#projects">View My Work</a>
-            <a class="btn btn-outline" href="#contact">Contact Me</a>
+            <a class="btn btn-signal" href="#projects">
+              View My Work
+              <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" stroke-width="1.75" stroke-linecap="square" stroke-linejoin="miter" />
+              </svg>
+            </a>
+            <a class="btn btn-outline" href="#contact">
+              Let’s Connect
+              <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="1.75" stroke-linecap="square" />
+              </svg>
+            </a>
           </div>
           <dl class="hero-meta">
             <div class="hero-meta-item">
@@ -146,8 +156,13 @@
 
       <section id="skills" class="section">
         <div class="container">
-          <p class="section-label fade-in">// section_03</p>
-          <h2 class="fade-in">Skills</h2>
+          <div class="section-heading fade-in">
+            <div class="section-heading-main">
+              <p class="section-label">// section_03</p>
+              <h2>Technical Stack</h2>
+            </div>
+            <span class="section-file">// stack.json</span>
+          </div>
           <div class="skills-grid">
             <article class="skill-panel fade-in">
               <div class="skill-panel-top">
@@ -210,8 +225,16 @@
 
       <section id="projects" class="section section-muted">
         <div class="container">
-          <p class="section-label fade-in">// section_04</p>
-          <h2 class="fade-in">Projects</h2>
+          <div class="section-heading fade-in">
+            <div class="section-heading-main">
+              <p class="section-label">// section_04</p>
+              <h2>Projects</h2>
+            </div>
+            <span class="section-file">// projects.log</span>
+          </div>
+          <p class="projects-status">
+            <span class="accent">//</span> more projects coming soon
+          </p>
           <div class="projects-grid">
             <article class="project-card fade-in">
               <div class="project-visual" aria-hidden="true">
@@ -228,13 +251,16 @@
                 <h3>Dice Roller App</h3>
                 <p>Basic Android app built while learning fundamentals.</p>
                 <a
-                  class="btn btn-outline btn-link"
-                  href="https://github.com/OnweEmmanuel?tab=repositories"
+                  class="code-link"
+                  href="https://github.com/OnweEmmanuel/dice-roller"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="View Dice Roller App code"
                 >
                   View Code
+                  <svg class="code-link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="1.75" stroke-linecap="square" />
+                  </svg>
                 </a>
               </div>
             </article>
@@ -253,13 +279,16 @@
                   Built during a 2-week bootcamp and covers PHP, HTML, CSS, and SQL basics.
                 </p>
                 <a
-                  class="btn btn-outline btn-link"
-                  href="https://github.com/OnweEmmanuel?tab=repositories"
+                  class="code-link"
+                  href="https://github.com/OnweEmmanuel/Php_bootcamp"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="View PHP Bootcamp Project code"
                 >
                   View Code
+                  <svg class="code-link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="1.75" stroke-linecap="square" />
+                  </svg>
                 </a>
               </div>
             </article>
@@ -269,8 +298,13 @@
 
       <section id="services" class="section">
         <div class="container">
-          <p class="section-label fade-in">// section_05</p>
-          <h2 class="fade-in">Services</h2>
+          <div class="section-heading fade-in">
+            <div class="section-heading-main">
+              <p class="section-label">// section_05</p>
+              <h2>What I Build</h2>
+            </div>
+            <span class="section-file">// services.ts</span>
+          </div>
           <div class="services-grid">
             <article class="service-panel fade-in">
               <span class="service-index">01</span>
@@ -300,11 +334,19 @@
             <h2 class="contact-headline">
               Let's build something that works <span class="accent">beautifully.</span>
             </h2>
-            <a class="contact-email-cta" href="mailto:cyberkuv@gmail.com">cyberkuv@gmail.com</a>
+            <a
+              class="contact-email-cta"
+              href="mailto:cyberkuv@gmail.com"
+              data-mail-web="https://mail.google.com/mail/?view=cm&fs=1&to=cyberkuv@gmail.com"
+            >cyberkuv@gmail.com</a>
           </div>
 
           <div class="contact-channels fade-in">
-            <a class="contact-channel" href="mailto:cyberkuv@gmail.com">
+            <a
+              class="contact-channel"
+              href="mailto:cyberkuv@gmail.com"
+              data-mail-web="https://mail.google.com/mail/?view=cm&fs=1&to=cyberkuv@gmail.com"
+            >
               <span class="contact-channel-label">EMAIL</span>
               <span class="contact-channel-value">cyberkuv@gmail.com</span>
               <svg class="contact-channel-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -343,30 +385,13 @@
               </svg>
             </a>
           </div>
-
-          <div class="contact-grid">
-            <form class="contact-form card fade-in" action="#" method="post">
-              <p class="section-label">// section_06</p>
-              <label for="name">Name</label>
-              <input id="name" name="name" type="text" required />
-
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" required />
-
-              <label for="message">Message</label>
-              <textarea id="message" name="message" rows="5" required></textarea>
-
-              <p class="form-note">Functionality coming soon.</p>
-            </form>
-          </div>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
       <div class="container footer-content">
-        <p><span class="logo-prompt">~/</span>emmanuel.onwe</p>
-        <p>&copy; <span id="year"></span> All rights reserved.</p>
+        <p>&copy; <span id="year"></span> Emmanuel Onwe</p>
         <p class="footer-location">Cape Town, South Africa</p>
       </div>
     </footer>
