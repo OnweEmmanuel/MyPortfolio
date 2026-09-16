@@ -11,49 +11,56 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <div class="site-grid" aria-hidden="true"></div>
+
     <header class="site-header">
       <nav class="navbar container">
-        <a class="logo" href="#home"><span class="name-gradient">Emmanuel Onwe</span></a>
+        <a class="logo" href="#home"
+          ><span class="logo-prompt">~/</span>emmanuel.onwe</a
+        >
         <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
           <span></span>
           <span></span>
           <span></span>
         </button>
         <ul class="nav-links">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#home">01 / Home</a></li>
+          <li><a href="#about">02 / About</a></li>
+          <li><a href="#projects">03 / Projects</a></li>
+          <li><a href="#services">04 / Services</a></li>
+          <li><a href="#contact">05 / Contact</a></li>
         </ul>
       </nav>
     </header>
 
     <main>
       <section id="home" class="hero section">
-        <div class="container fade-in">
-          <p class="location">Cape Town, South Africa</p>
-          <h1><span class="name-gradient">Emmanuel Onwe</span></h1>
+        <div class="container hero-enter">
+          <p class="location">
+            <span class="accent">$</span> Cape Town, South Africa
+          </p>
+          <h1>Emmanuel Onwe<span class="accent">.</span></h1>
           <p class="title">Full-Stack Software Engineer</p>
           <p class="pitch">
             I build efficient web applications and simple business websites that help businesses
             grow and operate better.
           </p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#projects">View My Work</a>
-            <a class="btn btn-secondary" href="#contact">Contact Me</a>
+            <a class="btn btn-signal" href="#projects">View My Work</a>
+            <a class="btn btn-outline" href="#contact">Contact Me</a>
           </div>
         </div>
       </section>
 
       <section id="about" class="section">
         <div class="container fade-in">
+          <p class="section-label">// section_01</p>
           <h2>About</h2>
           <p>
             Full-stack developer with experience building and maintaining web applications,
@@ -66,6 +73,7 @@
 
       <section id="experience" class="section section-muted">
         <div class="container">
+          <p class="section-label fade-in">// section_02</p>
           <h2 class="fade-in">Experience</h2>
           <div class="experience-grid">
             <article class="card fade-in">
@@ -118,6 +126,7 @@
 
       <section id="skills" class="section">
         <div class="container">
+          <p class="section-label fade-in">// section_03</p>
           <h2 class="fade-in">Skills</h2>
           <div class="skills-grid">
             <article class="card fade-in">
@@ -142,13 +151,14 @@
 
       <section id="projects" class="section section-muted">
         <div class="container">
+          <p class="section-label fade-in">// section_04</p>
           <h2 class="fade-in">Projects</h2>
           <div class="projects-grid">
             <article class="card fade-in">
               <h3>Dice Roller App</h3>
               <p>Basic Android app built while learning fundamentals.</p>
               <a
-                class="btn btn-link"
+                class="btn btn-outline btn-link"
                 href="https://github.com/OnweEmmanuel?tab=repositories"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -163,7 +173,7 @@
                 Built during a 2-week bootcamp and covers PHP, HTML, CSS, and SQL basics.
               </p>
               <a
-                class="btn btn-link"
+                class="btn btn-outline btn-link"
                 href="https://github.com/OnweEmmanuel?tab=repositories"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -178,6 +188,7 @@
 
       <section id="services" class="section">
         <div class="container">
+          <p class="section-label fade-in">// section_05</p>
           <h2 class="fade-in">Services</h2>
           <div class="services-grid">
             <article class="card fade-in">
@@ -199,6 +210,7 @@
       <section id="contact" class="section section-muted">
         <div class="container contact-grid">
           <div class="fade-in">
+            <p class="section-label">// section_06</p>
             <h2>Contact</h2>
             <p class="contact-item">
               <span>Email:</span>
@@ -250,7 +262,7 @@
 
     <footer class="site-footer">
       <div class="container footer-content">
-        <p><span class="name-gradient">Emmanuel Onwe</span></p>
+        <p><span class="logo-prompt">~/</span>emmanuel.onwe</p>
         <p>&copy; <span id="year"></span> All rights reserved.</p>
         <div class="footer-links">
           <a

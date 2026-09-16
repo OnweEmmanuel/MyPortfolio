@@ -3,6 +3,7 @@ const menuToggle = document.querySelector(".menu-toggle");
 const navLinks = document.querySelector(".nav-links");
 const navLinkItems = document.querySelectorAll(".nav-links a");
 const year = document.getElementById("year");
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 if (year) {
   year.textContent = new Date().getFullYear();
@@ -27,7 +28,9 @@ navLinkItems.forEach((link) => {
 
 const fadeItems = document.querySelectorAll(".fade-in");
 
-if ("IntersectionObserver" in window && fadeItems.length > 0) {
+if (prefersReducedMotion) {
+  fadeItems.forEach((item) => item.classList.add("is-visible"));
+} else if ("IntersectionObserver" in window && fadeItems.length > 0) {
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -48,8 +51,36 @@ if ("IntersectionObserver" in window && fadeItems.length > 0) {
   fadeItems.forEach((item) => item.classList.add("is-visible"));
 }
 
-if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-  fadeItems.forEach((item) => item.classList.add("is-visible"));
+const sectionIds = ["home", "about", "projects", "services", "contact"];
+const sectionElements = sectionIds
+  .map((id) => document.getElementById(id))
+  .filter((section) => section instanceof HTMLElement);
+
+const setActiveNav = (id) => {
+  navLinkItems.forEach((link) => {
+    const href = link.getAttribute("href");
+    link.classList.toggle("is-active", href === `#${id}`);
+  });
+};
+
+setActiveNav("home");
+
+if ("IntersectionObserver" in window && sectionElements.length > 0) {
+  const sectionObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveNav(entry.target.id);
+        }
+      });
+    },
+    {
+      rootMargin: "-25% 0px -65% 0px",
+      threshold: 0,
+    }
+  );
+
+  sectionElements.forEach((section) => sectionObserver.observe(section));
 }
 
 if (navLinks) {
@@ -59,8 +90,11 @@ if (navLinks) {
       if (targetId && targetId.startsWith("#")) {
         const target = document.querySelector(targetId);
         if (target) {
-          const offsetTop = target.getBoundingClientRect().top + window.scrollY - 76;
-          window.scrollTo({ top: offsetTop, behavior: "smooth" });
+          const offsetTop = target.getBoundingClientRect().top + window.scrollY - 64;
+          window.scrollTo({
+            top: offsetTop,
+            behavior: prefersReducedMotion ? "auto" : "smooth",
+          });
           event.preventDefault();
         }
       }
