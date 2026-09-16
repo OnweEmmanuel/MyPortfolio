@@ -51,7 +51,7 @@ if (prefersReducedMotion) {
   fadeItems.forEach((item) => item.classList.add("is-visible"));
 }
 
-const sectionIds = ["home", "about", "projects", "services", "contact"];
+const sectionIds = ["home", "projects", "services", "contact"];
 const sectionElements = sectionIds
   .map((id) => document.getElementById(id))
   .filter((section) => section instanceof HTMLElement);
