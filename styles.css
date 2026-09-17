@@ -494,7 +494,7 @@ p {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.15rem;
 }
 
 .skill-index {
@@ -513,6 +513,33 @@ p {
 .skill-panel h3 {
   margin-bottom: 1rem;
   font-size: 1.2rem;
+}
+
+.skill-group + .skill-group {
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+}
+
+.skill-group-title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4rem;
+  margin: 0 0 0.85rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--text);
+  line-height: 1.35;
+}
+
+.skill-group-index {
+  color: var(--accent);
+}
+
+.skill-group-sep {
+  color: var(--subtle);
 }
 
 .skill-chips {
@@ -590,25 +617,63 @@ p {
   transition: transform 0.3s ease, color 0.3s ease;
 }
 
-.education-card:hover .education-mark {
+.education-identity {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.education-identity h3 {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 1.5rem 1.5rem 0.65rem;
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  font-weight: 600;
+  color: var(--text);
+  transition: color 0.2s ease, gap 0.2s ease;
+}
+
+.education-identity-icon {
+  flex-shrink: 0;
+  width: 0.9rem;
+  height: 0.9rem;
+  color: var(--subtle);
+  transition: color 0.2s ease;
+}
+
+.education-identity:hover h3,
+.education-identity:focus-visible h3 {
+  color: var(--accent);
+  gap: 0.65rem;
+}
+
+.education-identity:hover .education-identity-icon,
+.education-identity:focus-visible .education-identity-icon {
+  color: var(--accent);
+}
+
+.education-card:hover .education-mark,
+.education-identity:hover .education-mark,
+.education-identity:focus-visible .education-mark {
   color: color-mix(in srgb, var(--accent) 85%, #fff);
 }
 
-.education-card:hover .education-mark-m {
+.education-card:hover .education-mark-m,
+.education-identity:hover .education-mark-m,
+.education-identity:focus-visible .education-mark-m {
   transform: rotate(-5deg) scale(1.04);
 }
 
-.education-card:hover .education-mark-w {
+.education-card:hover .education-mark-w,
+.education-identity:hover .education-mark-w,
+.education-identity:focus-visible .education-mark-w {
   transform: translateX(0.35rem) scale(1.04);
 }
 
 .education-body {
-  padding: 1.5rem 1.5rem 1.65rem;
-}
-
-.education-body h3 {
-  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
-  margin-bottom: 0.65rem;
+  padding: 0 1.5rem 1.65rem;
 }
 
 .education-qualification {
@@ -1026,6 +1091,10 @@ ul {
     align-items: start;
   }
 
+  .skills-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .services-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -1098,8 +1167,17 @@ ul {
   }
 
   .education-card:hover .education-mark-m,
-  .education-card:hover .education-mark-w {
+  .education-card:hover .education-mark-w,
+  .education-identity:hover .education-mark-m,
+  .education-identity:hover .education-mark-w,
+  .education-identity:focus-visible .education-mark-m,
+  .education-identity:focus-visible .education-mark-w {
     transform: none;
+  }
+
+  .education-identity:hover h3,
+  .education-identity:focus-visible h3 {
+    gap: 0.45rem;
   }
 
   .code-link:hover {
