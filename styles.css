@@ -535,6 +535,104 @@ p {
   color: var(--accent);
 }
 
+.education-grid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.education-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: border-color 0.2s ease;
+}
+
+.education-card:hover {
+  border-color: color-mix(in srgb, var(--accent) 50%, var(--border));
+}
+
+.education-visual {
+  position: relative;
+  min-height: 10.5rem;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+  padding: 1.25rem;
+}
+
+.education-visual-inner {
+  position: relative;
+  z-index: 1;
+  min-height: 8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.education-code {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--accent);
+}
+
+.education-signal {
+  align-self: flex-end;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--subtle);
+}
+
+.education-mark {
+  align-self: center;
+  color: var(--accent);
+  width: 3.5rem;
+  height: 3.5rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.education-card:hover .education-mark {
+  color: color-mix(in srgb, var(--accent) 85%, #fff);
+}
+
+.education-card:hover .education-mark-m {
+  transform: rotate(-5deg) scale(1.04);
+}
+
+.education-card:hover .education-mark-w {
+  transform: translateX(0.35rem) scale(1.04);
+}
+
+.education-body {
+  padding: 1.5rem 1.5rem 1.65rem;
+}
+
+.education-body h3 {
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  margin-bottom: 0.65rem;
+}
+
+.education-qualification {
+  margin: 0 0 0.45rem;
+  color: var(--text);
+  font-size: 0.98rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.education-field {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.education-dates {
+  margin: 0 0 1.15rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--subtle);
+}
+
 .projects-grid {
   display: grid;
   gap: 1.25rem;
@@ -880,6 +978,11 @@ ul {
     gap: 1.5rem;
   }
 
+  .education-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
   .section-file {
     display: inline-block;
   }
@@ -991,6 +1094,11 @@ ul {
 
   .project-card:hover .project-glyph-dice,
   .project-card:hover .project-glyph-php {
+    transform: none;
+  }
+
+  .education-card:hover .education-mark-m,
+  .education-card:hover .education-mark-w {
     transform: none;
   }
 
