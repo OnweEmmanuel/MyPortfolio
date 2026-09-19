@@ -71,6 +71,20 @@ button:focus-visible {
   -webkit-mask-image: linear-gradient(to bottom, black, transparent 72%);
 }
 
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  z-index: 200;
+  pointer-events: none;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left center;
+  will-change: transform;
+}
+
 .container {
   width: min(100% - 2.5rem, var(--container));
   margin-inline: auto;
@@ -244,9 +258,17 @@ p {
   right: 0;
   background: var(--bg);
   border-bottom: 1px solid var(--border);
-  display: none;
+  display: flex;
   flex-direction: column;
   gap: 0;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease,
+    visibility 180ms linear;
 }
 
 .nav-links a {
@@ -271,7 +293,10 @@ p {
 }
 
 .nav-open .nav-links {
-  display: flex;
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 .hero {
@@ -288,6 +313,27 @@ p {
   font-weight: 400;
   color: var(--text-muted);
   margin-bottom: 1.5rem;
+}
+
+.terminal-cursor {
+  display: inline-block;
+  width: 0.5em;
+  height: 1em;
+  margin-left: 0.15em;
+  background: var(--accent);
+  vertical-align: -0.12em;
+  animation: terminal-cursor-blink 1s steps(1, end) 4 forwards;
+}
+
+@keyframes terminal-cursor-blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
 }
 
 .title {
@@ -704,6 +750,7 @@ p {
 }
 
 .project-card {
+  position: relative;
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -711,8 +758,45 @@ p {
   transition: border-color 0.2s ease;
 }
 
+.project-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 28%;
+  pointer-events: none;
+  z-index: 3;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    color-mix(in srgb, var(--accent) 14%, transparent) 50%,
+    transparent 100%
+  );
+  opacity: 0;
+  transform: translateX(-120%);
+}
+
 .project-card:hover {
   border-color: color-mix(in srgb, var(--accent) 50%, var(--border));
+}
+
+.project-card:hover::after {
+  animation: project-scan 0.65s ease-out 1;
+}
+
+@keyframes project-scan {
+  0% {
+    opacity: 0;
+    transform: translateX(-120%);
+  }
+  18% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(380%);
+  }
 }
 
 .project-visual {
@@ -1012,7 +1096,10 @@ ul {
 .fade-in {
   opacity: 0;
   transform: translateY(18px);
-  transition: opacity 0.65s ease, transform 0.65s ease;
+  transition:
+    opacity 0.65s ease,
+    transform 0.65s ease;
+  transition-delay: var(--reveal-delay, 0ms);
 }
 
 .fade-in.is-visible {
@@ -1033,6 +1120,11 @@ ul {
     padding: 0;
     background: transparent;
     gap: 1.4rem;
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+    transition: none;
   }
 
   .nav-links a {
@@ -1180,10 +1272,20 @@ ul {
   .fade-in {
     opacity: 1;
     transform: none;
+    transition-delay: 0ms !important;
   }
 
   .hero-enter {
     animation: none;
+  }
+
+  .terminal-cursor {
+    display: none;
+  }
+
+  .project-card:hover::after {
+    animation: none;
+    opacity: 0;
   }
 
   .project-card:hover .project-glyph-dice,
@@ -1207,5 +1309,14 @@ ul {
 
   .code-link:hover {
     gap: 0.45rem;
+  }
+
+  .nav-links {
+    transition: none;
+    transform: none;
+  }
+
+  .nav-open .nav-links {
+    transform: none;
   }
 }
