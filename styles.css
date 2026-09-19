@@ -945,6 +945,23 @@ ul {
   background: var(--card);
 }
 
+.contact-channel-static {
+  cursor: default;
+  grid-template-columns: auto 1fr;
+}
+
+.contact-channel-static:hover {
+  color: var(--text-muted);
+  background: var(--bg);
+}
+
+.contact-channel-note {
+  grid-column: 1 / -1;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--subtle);
+}
+
 .contact-channel-label {
   color: inherit;
   letter-spacing: 0.04em;
@@ -1124,6 +1141,10 @@ ul {
     align-items: start;
   }
 
+  .contact-channel-static {
+    grid-template-columns: 1fr;
+  }
+
   .contact-channel-label {
     grid-column: 1;
   }
@@ -1136,6 +1157,10 @@ ul {
   .contact-channel-value {
     grid-column: 1 / -1;
     margin-top: 0.35rem;
+  }
+
+  .contact-channel-note {
+    margin-top: 0.15rem;
   }
 }
 
