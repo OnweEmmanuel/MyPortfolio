@@ -10,7 +10,13 @@ const ExternalLink = ({ href, children }) => (
 const COMMANDS = {
   help: () => (
     <>
-      commands: <span className="y">whoami  location  stack  email  github  linkedin  sudo hire-me  clear</span>
+      commands: <span className="y">whoami  location  stack  hobbies  email  github  linkedin  sudo hire-me  clear</span>
+    </>
+  ),
+  hobbies: () => "codm · clash of clans · one piece · black clover · manga & manhwa · bowling · mini golf",
+  onepiece: () => (
+    <>
+      <span className="y">THE ONE PIECE IS REAL.</span> 🏴‍☠️ No further questions.
     </>
   ),
   whoami: () => "Emmanuel Onwe, full-stack engineer. Building for the web since 2019.",

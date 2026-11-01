@@ -18,6 +18,7 @@ export const navItems = [
   { id: "stack", label: "stack" },
   { id: "projects", label: "projects" },
   { id: "services", label: "services" },
+  { id: "side-quests", label: "fun" },
   { id: "contact", label: "contact" },
 ];
 
@@ -159,6 +160,62 @@ export const projects = [
     shot: "dice",
     description: "A small Android app from when I was learning mobile fundamentals.",
     link: { label: "view code", href: "https://github.com/OnweEmmanuel/dice-roller" },
+  },
+  {
+    title: "Tic-tac-toe",
+    badge: "PYTHON · TERMINAL",
+    url: "github › tick-tack-toe",
+    shot: "tictactoe",
+    description: "A two-player tic-tac-toe game that runs right in the terminal, written in Python.",
+    link: { label: "view code", href: "https://github.com/OnweEmmanuel/tick-tack-toe" },
+  },
+];
+
+export const nowPlaying = ["▶ watching: Black Clover", "🎮 grinding: CODM ranked", "🏰 builders: all busy (always)"];
+
+// Each stat is a joke "progress bar". `value` can go past 100; the bar just caps out.
+export const sideQuests = [
+  {
+    icon: "🎯",
+    tag: "RANKED",
+    title: "Call of Duty: Mobile",
+    text: "I don't lose, I get lagged. Every win is pure skill. Every death is my Wi-Fi's fault. Science.",
+    stat: { label: "Blaming the ping", value: 97 },
+  },
+  {
+    icon: "🏰",
+    tag: "LONG-TERM PROJECT",
+    title: "Clash of Clans",
+    text: "Upgrading the same walls for years. The only roadmap I've seen that's longer than enterprise software.",
+    stat: { label: "Free builders", value: 0 },
+  },
+  {
+    icon: "🏴‍☠️",
+    tag: "ANIME",
+    title: "One Piece → Black Clover",
+    text: "All-time favourite: One Piece. 1,000+ episodes and somehow still too short. Currently on Black Clover: a guy with zero magic screams his way to the top. That's also my debugging strategy.",
+    stat: { label: "Belief the One Piece is real", value: 100 },
+  },
+  {
+    icon: "📚",
+    tag: "CHAPTER ADDICT",
+    title: "Manga & manhwa",
+    text: "I read faster than they release. Ending a chapter on a cliffhanger should be a punishable offence.",
+    stat: { label: "Patience for next chapter", value: 4 },
+  },
+  {
+    icon: "🎳",
+    tag: "WEEKEND",
+    title: "Bowling",
+    text: "Strikes are skill. Gutter balls are a creative choice. Please respect my artistic process.",
+    stat: { label: "Accuracy (generously)", value: 62 },
+  },
+  {
+    icon: "⛳",
+    tag: "COMPETITIVE",
+    title: "Mini golf",
+    text: "The windmill hole is rigged and I will die on that hill. Probably on hole 7. Again.",
+    stat: { label: "Sore-loser rating", value: 88 },
   },
 ];
 

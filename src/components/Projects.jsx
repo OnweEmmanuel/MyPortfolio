@@ -2,7 +2,10 @@ import { motion, useMotionValue, useReducedMotion, useSpring } from "motion/reac
 import { projects } from "../data.js";
 import BlockHead from "./BlockHead.jsx";
 
-const PARABOLA = "M60 30 Q200 370 340 30";
+// Board cells left-to-right, top-to-bottom ("" = empty), and the order the marks are played in.
+const TTT_MOVES = ["X", "O", "X", "", "X", "O", "O", "", "X"];
+const TTT_ORDER = [4, 1, 0, 6, 2, 5, 8];
+const PARABOLA ="M60 30 Q200 370 340 30";
 const PRICE_LINE ="M0 150 L40 138 L80 146 L120 112 L160 120 L200 84 L240 96 L280 60 L320 72 L360 34 L400 44";
 
 // Little illustration at the top of each project window.
@@ -48,6 +51,39 @@ function Shot({ type }) {
           <text className="eq" x="200" y="95" textAnchor="middle">y = 0.09x² − 3</text>
           <text className="note" x="200" y="120" textAnchor="middle">vertex (0, −3)</text>
         </svg>
+      </div>
+    );
+  }
+
+  if (type === "tictactoe") {
+    return (
+      <div className="shot shot-ttt">
+        <span className="prompt">
+          <span className="accent">$</span> python tick-tack-toe.py
+        </span>
+        <div className="ttt-board">
+          {TTT_MOVES.map((mark, i) => (
+            <motion.span
+              key={i}
+              className={mark === "X" ? "x" : "o"}
+              initial={{ opacity: 0, scale: 0.4 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 + TTT_ORDER.indexOf(i) * 0.18, type: "spring", stiffness: 400, damping: 15 }}
+            >
+              {mark}
+            </motion.span>
+          ))}
+        </div>
+        <motion.span
+          className="ttt-result"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3 + TTT_ORDER.length * 0.18 }}
+        >
+          ✓ player X wins
+        </motion.span>
       </div>
     );
   }
