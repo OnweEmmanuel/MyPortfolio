@@ -2,58 +2,89 @@
 
 export const EMAIL = "cyberkuv@gmail.com";
 export const GMAIL_COMPOSE_URL = `https://mail.google.com/mail/?view=cm&fs=1&to=${EMAIL}`;
+export const GITHUB_URL = "https://github.com/OnweEmmanuel";
+export const LINKEDIN_URL = "https://www.linkedin.com/in/emmanuel-onwe-97355a184/";
+
+export const location = {
+  from: "Cape Town",
+  to: "Lagos",
+  route: "CPT → LOS",
+  summary: "Cape Town → Lagos · working worldwide",
+};
 
 export const navItems = [
-  { id: "home", label: "01 / Home" },
-  { id: "experience", label: "02 / Experience" },
-  { id: "education", label: "03 / Education" },
-  { id: "skills", label: "04 / Stack" },
-  { id: "projects", label: "05 / Projects" },
-  { id: "services", label: "06 / Services" },
-  { id: "contact", label: "07 / Contact" },
+  { id: "work", label: "work" },
+  { id: "education", label: "education" },
+  { id: "stack", label: "stack" },
+  { id: "projects", label: "projects" },
+  { id: "services", label: "services" },
+  { id: "contact", label: "contact" },
 ];
 
-export const heroMeta = [
-  { term: "Current", value: "Full-Stack Software Engineer" },
-  { term: "Focus", value: "Web Development / Full-Stack Development" },
-  { term: "Since", value: "2019" },
+// Token types: k = keyword, f = name/function, s = string, p = plain, c = comment
+export const editorSnippets = [
+  {
+    file: "profile.py",
+    run: "python profile.py",
+    output: "✓ engineer ready to ship",
+    tokens: [
+      ["k", "class "], ["f", "Engineer"], ["p", ":\n    name  = "], ["s", '"Emmanuel Onwe"'],
+      ["p", "\n    stack = ["], ["s", '"Laravel"'], ["p", ", "], ["s", '".NET"'], ["p", ", "], ["s", '"React"'],
+      ["p", "]\n\n    "], ["k", "def "], ["f", "ship"], ["p", "(self, idea):\n        "],
+      ["k", "return "], ["f", "deploy"], ["p", "(idea)  "], ["c", "# always"],
+    ],
+  },
+  {
+    file: "Engineer.php",
+    run: "php artisan ship",
+    output: "✓ 4 features deployed · 0 bugs",
+    tokens: [
+      ["k", "final class "], ["f", "Engineer "], ["k", "extends "], ["f", "Human"],
+      ["p", "\n{\n    "], ["k", "public function "], ["f", "build"], ["p", "("], ["f", "Idea "],
+      ["p", "$idea): "], ["f", "Product"], ["p", "\n    {\n        "], ["k", "return "], ["p", "$idea->"],
+      ["f", "design"], ["p", "()\n                    ->"], ["f", "test"], ["p", "()->"], ["f", "ship"], ["p", "();\n    }\n}"],
+    ],
+  },
 ];
+
+export const marqueeRows = [
+  ["LARAVEL", "REACT", ".NET", "ANGULAR", "PHP", "TYPESCRIPT", "PYTHON", "DOCKER"],
+  ["APIs THAT SCALE", "UIs THAT FEEL GOOD", "BUGS THAT STAY FIXED", "SHIPPED ON TIME"],
+];
+
+// Words wrapped in *asterisks* are highlighted.
+export const statement =
+  "I turn messy business *problems* into clean, fast, *shipped* software, from the database all the way to the *button* you click.";
 
 export const experience = [
   {
+    hash: "a3f9c14",
+    head: true,
     company: "InfoDocs",
     role: "Full-Stack Engineer",
-    date: "May 2024 - Sept 2026",
-    points: [
-      "Maintain data integrity",
-      "Fix bugs and improve existing features",
-      "Build new features",
-      "Develop API endpoints",
-      "Create UI components",
-    ],
+    date: "May 2024 → Sept 2026",
+    points: ["API endpoints", "new features", "UI components", "data integrity", "bug fixes"],
   },
   {
+    hash: "7be2101",
     company: "EasyCrypto",
     role: "Full-Stack Developer",
-    date: "Feb 2021 - Nov 2023",
-    points: [
-      "Worked in a development team",
-      "Bug fixing and testing",
-      "Suggested improvements",
-      "Pair programming",
-    ],
+    date: "Feb 2021 → Nov 2023",
+    points: ["team delivery", "testing", "improvements", "pair programming"],
   },
   {
+    hash: "c04d9e2",
     company: "WeThinkCode",
     role: "Technical Assistant & Mentor",
-    date: "2020 - 2021",
-    points: ["Assisted students with technical issues", "Supported onboarding and learning"],
+    date: "2020 → 2021",
+    points: ["student support", "onboarding"],
   },
   {
+    hash: "0001init",
     company: "WeThinkCode",
     role: "Developer Intern",
     date: "2019",
-    points: ['Built "Staff Views" system', "Aggregated student data into a unified interface"],
+    points: ["built Staff Views", "unified student data"],
   },
 ];
 
@@ -61,10 +92,6 @@ export const education = [
   {
     name: "MANCOSA",
     url: "https://www.mancosa.co.za/",
-    code: "EDU_01",
-    mark: "m",
-    markPath: "M14 42V14h7l7 16 7-16h7v28h-6.5V24L29.5 42h-3L20.5 24v18H14Z",
-    signal: "DEGREE / IT",
     qualification: "Bachelor of Commerce in Information Technology Management",
     field: "Information Technology",
     dates: "Jan 2023 – Dec 2026",
@@ -73,109 +100,62 @@ export const education = [
   {
     name: "WeThinkCode",
     url: "https://wethinkcode.co.za/",
-    code: "EDU_02",
-    mark: "w",
-    markPath: "M10 14h7l5.5 20L28 14h6l5.5 20L45 14h7l-8 28H36l-5.5-20L25 42h-8L10 14Z",
-    signal: "NQF 5 / PROGRAMMING",
     qualification: "MICT SETA NQF Level 5",
     field: "Computer Programming",
     dates: "2018 – 2020",
-    skills: ["Object-Oriented Programming (OOP)", "Full-Stack Development"],
+    skills: ["Object-Oriented Programming", "Full-Stack Development"],
   },
 ];
 
-// A panel has either `title` + `skills`, or `groups` of { title, skills }.
-export const skillPanels = [
+// Orbit rings, innermost first. `inset` is the ring's distance from the edge, as % of the orbit.
+// Chip styles: "hot" = orange, "yel" = yellow.
+export const stackRings = [
+  { inset: 26, seconds: 26, skills: [["React", "hot"], ["TypeScript"], ["Angular", "yel"], ["JavaScript"]] },
+  { inset: 14, seconds: 40, offset: 20, skills: [["Laravel", "hot"], ["PHP"], [".NET", "yel"], ["C#"], ["Node.js"]] },
   {
-    title: "Programming",
-    skills: ["C#", "JavaScript", "TypeScript", "PHP", "Java", "Python", "SQL"],
-  },
-  {
-    title: "Frontend",
-    skills: ["Angular", "React", "HTML5", "CSS3", "SCSS", "Bootstrap", "RxJS"],
-  },
-  {
-    title: "Backend",
-    skills: [".NET", "ASP.NET Core", "Laravel", "Node.js", "REST APIs"],
-  },
-  {
-    groups: [
-      { title: "Databases & Caching", skills: ["MySQL", "MongoDB", "Redis"] },
-      { title: "AI & Development", skills: ["Cursor", "ChatGPT"] },
-    ],
-  },
-  {
-    title: "DevOps & Tools",
-    skills: [
-      "Git",
-      "GitHub",
-      "Bitbucket",
-      "Jira",
-      "Azure DevOps",
-      "Docker",
-      "Docker Compose",
-      "CI/CD",
-      "Bitbucket Pipelines",
-      "Postman",
-      "VS Code",
-      "Composer",
-      "npm",
-      "Vite",
-      "Linux",
-    ],
-  },
-  {
-    title: "Development & Monitoring",
-    skills: [
-      "Laravel Horizon",
-      "Sentry",
-      "Automated Testing",
-      "API Testing",
-      "Webhooks",
-      "JSON",
-    ],
+    inset: 2,
+    seconds: 60,
+    skills: [["Docker"], ["MySQL", "yel"], ["Redis"], ["Python", "hot"], ["Git"], ["Azure DevOps"], ["MongoDB"], ["Linux"]],
   },
 ];
 
 export const projects = [
   {
-    title: "Dice Roller App",
-    description: "Basic Android app built while learning fundamentals.",
-    url: "https://github.com/OnweEmmanuel/dice-roller",
-    code: "PROJECT_01",
-    glyph: "dice",
-    signal: "ANDROID / FUNDAMENTALS",
+    title: "InfoDocs",
+    badge: "PLATFORM · 2024–26",
+    url: "infodocs.co.za",
+    shot: "api",
+    description: "API endpoints, features, and UI for a company-secretarial SaaS. Data integrity first.",
+    link: { label: "visit infodocs", href: "https://infodocs.co.za/" },
   },
   {
-    title: "PHP Bootcamp Project",
-    description: "Built during a 2-week bootcamp and covers PHP, HTML, CSS, and SQL basics.",
-    url: "https://github.com/OnweEmmanuel/Php_bootcamp",
-    code: "PROJECT_02",
-    glyph: "php",
-    signal: "PHP / HTML / CSS / SQL",
+    title: "EasyCrypto",
+    badge: "PLATFORM · 2021–23",
+    url: "crypto.easyequities.co.za",
+    shot: "crypto",
+    description: "Full-stack work on EasyEquities' crypto platform: features, testing, and improvements as part of the dev team.",
+    link: { label: "visit easycrypto", href: "https://crypto.easyequities.co.za/" },
+  },
+  {
+    title: "This portfolio",
+    badge: "LIVE · React + Motion",
+    url: "emmanuel.onwe",
+    shot: "portfolio",
+    description: "Rebuilt from vanilla HTML to React, with a typing editor, scroll-driven art, and a working terminal.",
+    link: { label: "view source", href: "https://github.com/OnweEmmanuel/MyPortfolio" },
+  },
+  {
+    title: "Dice Roller",
+    badge: "ANDROID",
+    url: "github › dice-roller",
+    shot: "dice",
+    description: "A small Android app from when I was learning mobile fundamentals.",
+    link: { label: "view code", href: "https://github.com/OnweEmmanuel/dice-roller" },
   },
 ];
 
 export const services = [
-  {
-    title: "Business Website Development",
-    description: "Simple, modern websites for small businesses to attract customers.",
-  },
-  {
-    title: "Web Application Development",
-    description: "Custom web apps built with modern technologies.",
-  },
-  {
-    title: "Bug Fixing & Maintenance",
-    description: "Fix issues and improve performance of existing systems.",
-  },
-];
-
-export const socialLinks = [
-  { label: "GITHUB", value: "GitHub Profile", url: "https://github.com/OnweEmmanuel" },
-  {
-    label: "LINKEDIN",
-    value: "LinkedIn Profile",
-    url: "https://www.linkedin.com/in/emmanuel-onwe-97355a184/",
-  },
+  { title: "Business websites", description: "Modern sites that bring small businesses customers." },
+  { title: "Web applications", description: "Custom apps on Laravel, .NET, React or Angular." },
+  { title: "Fixes & maintenance", description: "Bugs squashed, slow things made fast." },
 ];

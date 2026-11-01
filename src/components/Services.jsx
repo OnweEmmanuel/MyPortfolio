@@ -1,19 +1,23 @@
 import { services } from "../data.js";
 import { padIndex } from "../utils.js";
-import SectionHeading from "./SectionHeading.jsx";
+import BlockHead from "./BlockHead.jsx";
+import Reveal from "./Reveal.jsx";
 
 export default function Services() {
   return (
-    <section id="services" className="section">
-      <div className="container">
-        <SectionHeading label="// section_05" title="What I Build" file="// services.ts" />
-        <div className="services-grid">
-          {services.map((service, index) => (
-            <article key={service.title} className="service-panel fade-in">
-              <span className="service-index">{padIndex(index)}</span>
+    <section className="block" id="services">
+      <div className="wrap">
+        <BlockHead title="What I build" cmd="services.ts" cmdClassName="yellow" />
+        <div className="services-list">
+          {services.map((service, i) => (
+            <Reveal key={service.title} className="service-row" delay={i * 0.08}>
+              <span className="n">{padIndex(i)}</span>
               <h3>{service.title}</h3>
               <p>{service.description}</p>
-            </article>
+              <span className="arr" aria-hidden="true">
+                →
+              </span>
+            </Reveal>
           ))}
         </div>
       </div>

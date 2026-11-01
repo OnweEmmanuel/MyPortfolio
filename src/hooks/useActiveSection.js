@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 // Tracks which section is in the upper-middle band of the viewport.
 export function useActiveSection(sectionIds) {
-  const [activeId, setActiveId] = useState(sectionIds[0]);
+  const [activeId, setActiveId] = useState(null);
   const idsKey = sectionIds.join(",");
 
   useEffect(() => {
