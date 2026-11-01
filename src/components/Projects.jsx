@@ -2,7 +2,8 @@ import { motion, useMotionValue, useReducedMotion, useSpring } from "motion/reac
 import { projects } from "../data.js";
 import BlockHead from "./BlockHead.jsx";
 
-const PRICE_LINE = "M0 150 L40 138 L80 146 L120 112 L160 120 L200 84 L240 96 L280 60 L320 72 L360 34 L400 44";
+const PARABOLA = "M60 30 Q200 370 340 30";
+const PRICE_LINE ="M0 150 L40 138 L80 146 L120 112 L160 120 L200 84 L240 96 L280 60 L320 72 L360 34 L400 44";
 
 // Little illustration at the top of each project window.
 function Shot({ type }) {
@@ -23,6 +24,29 @@ function Shot({ type }) {
             viewport={{ once: true }}
             transition={{ duration: 1.6, delay: 0.3, ease: [0.2, 0.9, 0.2, 1] }}
           />
+        </svg>
+      </div>
+    );
+  }
+
+  if (type === "graph") {
+    return (
+      <div className="shot shot-graph">
+        <svg viewBox="0 0 400 240" preserveAspectRatio="xMidYMid meet">
+          <path className="axis" d="M20 200 H380 M200 20 V225" />
+          <motion.path
+            className="curve"
+            d={PARABOLA}
+            initial={{ pathLength: 0 }}
+            whileInView={{ pathLength: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.6, delay: 0.3, ease: [0.2, 0.9, 0.2, 1] }}
+          />
+          <circle className="vertex" cx="200" cy="200" r="6" />
+          <circle className="ring" cx="348" cy="168" r="28" />
+          <path className="ring" d="M348 140 L324 182 L372 182 Z" />
+          <text className="eq" x="200" y="95" textAnchor="middle">y = 0.09x² − 3</text>
+          <text className="note" x="200" y="120" textAnchor="middle">vertex (0, −3)</text>
         </svg>
       </div>
     );

@@ -137,6 +137,14 @@ export const projects = [
     link: { label: "visit easycrypto", href: "https://crypto.easyequities.co.za/" },
   },
   {
+    title: "Olutomi Kassim, digital CV",
+    badge: "CLIENT SITE",
+    url: "kassimd813-cloud.github.io",
+    shot: "graph",
+    description: "A digital CV for a Cape Town mathematics educator, designed around graphs and equations, with his teaching career plotted as a timeline.",
+    link: { label: "visit the cv", href: "https://kassimd813-cloud.github.io/" },
+  },
+  {
     title: "This portfolio",
     badge: "LIVE · React + Motion",
     url: "emmanuel.onwe",

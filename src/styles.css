@@ -1282,6 +1282,46 @@ header[id] {
   color: var(--cream);
 }
 
+.shot-graph {
+  background: var(--green-xdk);
+}
+
+.shot-graph svg {
+  width: 100%;
+  height: 100%;
+}
+
+.shot-graph .axis,
+.shot-graph .ring {
+  fill: none;
+  stroke: rgba(217, 232, 226, 0.3);
+  stroke-width: 1.5;
+}
+
+.shot-graph .curve {
+  fill: none;
+  stroke: var(--yellow);
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+.shot-graph .vertex {
+  fill: var(--orange);
+}
+
+.shot-graph .eq {
+  font-family: var(--mono);
+  font-size: 20px;
+  font-weight: 700;
+  fill: var(--cream);
+}
+
+.shot-graph .note {
+  font-family: var(--mono);
+  font-size: 13px;
+  fill: var(--code-muted);
+}
+
 .shot-api {
   margin: 0;
   background: var(--green-xdk);
