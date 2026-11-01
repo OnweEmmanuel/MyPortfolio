@@ -13,12 +13,13 @@ It's a single-page React site with a bold, playful developer theme: a self-typin
 | **Hero** | Big animated name, plus a tilted code editor that types Python and PHP snippets and "runs" them. Animated circuit-board background and code symbols that move with the mouse. |
 | **Marquee** | Two crossing bands of scrolling text. |
 | **Statement** | A sentence pinned to the screen that lights up word by word as you scroll. |
-| **Experience** | Career shown as a `git log`. The commit rail fills in as you scroll. |
+| **Experience** | Career shown as a `git log`. The commit rail fills in as you scroll, and each commit is wired to its card with current flowing along it. |
 | **Education** | Cards for MANCOSA and WeThinkCode, linking to each school. |
 | **Stack** | Skills orbiting a `{ }` core, next to a `package.json` card. |
 | **Projects** | Browser-window cards that tilt toward the mouse. Clicking a card opens the project. |
 | **Services** | Rows that fill with orange on hover. |
-| **Contact** | Email link and a working terminal (`help`, `whoami`, `location`, `email`, `sudo hire-me`, …). |
+| **Side quests** | The fun bit: hobbies as game achievement cards (CODM, Clash of Clans, anime, manga, bowling, mini golf), each with a joke stat bar. |
+| **Contact** | Email link and a working terminal (`help`, `whoami`, `location`, `hobbies`, `sudo hire-me`, …). |
 
 People who have "reduce motion" turned on in their device settings get a still version of the site.
 
@@ -63,6 +64,7 @@ Almost all text lives in [`src/data.js`](src/data.js), so most updates don't tou
 | Skills in the orbit | `stackRings` (`"hot"` makes a chip orange, `"yel"` makes it yellow) |
 | Projects | `projects` (add `link` to make the card clickable; `shot` picks the illustration) |
 | Services | `services` |
+| Hobbies | `sideQuests` and `nowPlaying` |
 | Editor snippets | `editorSnippets` (each token is `[type, text]`, where type sets the colour) |
 | Scrolling bands | `marqueeRows` |
 | Pinned statement | `statement` (wrap a word in `*asterisks*` to make it orange) |
@@ -80,7 +82,7 @@ A few things live elsewhere:
 ```text
 MyPortfolio/
 ├── index.html                 # Vite entry: title, meta tags, fonts, favicons
-├── public/assets/favicon/     # favicons, served as-is
+├── public/assets/favicon/     # favicons (SVG + PNG sizes), served as-is
 ├── src/
 │   ├── main.jsx               # mounts <App />
 │   ├── App.jsx                # page layout, in section order
@@ -95,7 +97,7 @@ MyPortfolio/
 │       ├── Nav.jsx, Cursor.jsx, ScrollProgress.jsx
 │       ├── Marquee.jsx, Statement.jsx
 │       ├── Experience.jsx, Education.jsx, Stack.jsx
-│       ├── Projects.jsx, Services.jsx
+│       ├── Projects.jsx, Services.jsx, SideQuests.jsx
 │       ├── Contact.jsx, Terminal.jsx, MailLink.jsx, Footer.jsx
 │       └── Reveal.jsx, BlockHead.jsx   # shared: scroll-in animation, section heading
 ├── package.json

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { EMAIL, GITHUB_URL, GMAIL_COMPOSE_URL, LINKEDIN_URL, location } from "../data.js";
+import { CODM_USERNAME, EMAIL, GITHUB_URL, GMAIL_COMPOSE_URL, LINKEDIN_URL, location } from "../data.js";
 
 const ExternalLink = ({ href, children }) => (
   <a className="y" href={href} target="_blank" rel="noopener noreferrer">
@@ -10,7 +10,18 @@ const ExternalLink = ({ href, children }) => (
 const COMMANDS = {
   help: () => (
     <>
-      commands: <span className="y">whoami  location  stack  email  github  linkedin  sudo hire-me  clear</span>
+      commands: <span className="y">whoami  location  stack  hobbies  codm  email  github  linkedin  sudo hire-me  clear</span>
+    </>
+  ),
+  hobbies: () => "codm · clash of clans · one piece · black clover · overgeared · tower of god · bowling · mini golf",
+  codm: () => (
+    <>
+      IGN <span className="y">{CODM_USERNAME}</span> · BR main · 21× Legendary BR · 7× Legendary MP. Add me, I'll carry.
+    </>
+  ),
+  onepiece: () => (
+    <>
+      <span className="y">THE ONE PIECE IS REAL.</span> 🏴‍☠️ No further questions.
     </>
   ),
   whoami: () => "Emmanuel Onwe, full-stack engineer. Building for the web since 2019.",

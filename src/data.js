@@ -18,6 +18,7 @@ export const navItems = [
   { id: "stack", label: "stack" },
   { id: "projects", label: "projects" },
   { id: "services", label: "services" },
+  { id: "side-quests", label: "fun" },
   { id: "contact", label: "contact" },
 ];
 
@@ -145,12 +146,90 @@ export const projects = [
     link: { label: "view source", href: "https://github.com/OnweEmmanuel/MyPortfolio" },
   },
   {
+    title: "Olutomi Kassim, digital CV",
+    badge: "CLIENT SITE",
+    url: "kassimd813-cloud.github.io",
+    shot: "graph",
+    description: "A digital CV for a Cape Town mathematics educator, designed around graphs and equations, with his teaching career plotted as a timeline.",
+    link: { label: "visit the cv", href: "https://kassimd813-cloud.github.io/" },
+  },
+  {
     title: "Dice Roller",
     badge: "ANDROID",
     url: "github › dice-roller",
     shot: "dice",
     description: "A small Android app from when I was learning mobile fundamentals.",
     link: { label: "view code", href: "https://github.com/OnweEmmanuel/dice-roller" },
+  },
+  {
+    title: "Tic-tac-toe",
+    badge: "PYTHON · TERMINAL",
+    url: "github › tick-tack-toe",
+    shot: "tictactoe",
+    description: "A two-player tic-tac-toe game that runs right in the terminal, written in Python.",
+    link: { label: "view code", href: "https://github.com/OnweEmmanuel/tick-tack-toe" },
+  },
+];
+
+export const CODM_USERNAME = "STRANGER亗乂";
+
+export const nowPlaying = [
+  "▶ watching: Black Clover",
+  "📖 reading: Overgeared",
+  "🎮 dropping in: CODM BR",
+  "🏰 builders: all busy (always)",
+];
+
+// `facts` are shown as chips. Each stat is a joke "progress bar"; `value` can
+// go past 100, the bar just caps out.
+export const sideQuests = [
+  {
+    icon: "🎯",
+    tag: "BR MAIN",
+    title: "Call of Duty: Mobile",
+    text: "Battle Royale main, but I'll happily run Multiplayer too. I don't lose, I get lagged. Every win is pure skill; every death is my Wi-Fi's fault. Science.",
+    facts: [`IGN: ${CODM_USERNAME}`, "21× Legendary BR", "7× Legendary MP"],
+    stat: { label: "Blaming the ping", value: 97 },
+  },
+  {
+    icon: "🏰",
+    tag: "SINCE 2019",
+    title: "Clash of Clans",
+    text: "Building since 2019, with a 'strategic break' in the middle. Now at Town Hall 17, still upgrading walls. The only roadmap I've seen that's longer than enterprise software.",
+    facts: ["Town Hall 17", "Dragons", "Balloons", "Lightning spells"],
+    stat: { label: "Free builders", value: 0 },
+  },
+  {
+    icon: "🏴‍☠️",
+    tag: "ANIME",
+    title: "One Piece → Black Clover",
+    text: "All-time favourite: One Piece. 1,000+ episodes and somehow still too short. Currently on Black Clover: a guy with zero magic screams his way to the top. That's also my debugging strategy.",
+    facts: ["Favourite: One Piece", "Watching: Black Clover"],
+    stat: { label: "Belief the One Piece is real", value: 100 },
+  },
+  {
+    icon: "📚",
+    tag: "CHAPTER ADDICT",
+    title: "Manga & manhwa",
+    text: "Currently reading Overgeared and Tower of God. Team Urek Mazino, obviously. I read faster than they release, and cliffhangers should be a punishable offence.",
+    facts: ["Overgeared", "Tower of God", "Urek Mazino supremacy"],
+    stat: { label: "Patience for next chapter", value: 4 },
+  },
+  {
+    icon: "🎳",
+    tag: "UNDEFEATED-ISH",
+    title: "Bowling",
+    text: "I'm actually good at this one. I almost always win, so the occasional gutter ball is really just me being kind to everyone else.",
+    facts: ["High score: 130+", "Almost always wins"],
+    stat: { label: "Win rate (allegedly)", value: 90 },
+  },
+  {
+    icon: "⛳",
+    tag: "JUST FOR FUN",
+    title: "Mini golf",
+    text: "Not good. Don't care. I have the most fun on the course while losing to people who 'never play'. Also, the windmill hole is rigged.",
+    facts: ["Skill: questionable", "Fun: maxed out"],
+    stat: { label: "Actual skill", value: 25 },
   },
 ];
 
