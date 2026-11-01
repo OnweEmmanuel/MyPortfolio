@@ -1198,7 +1198,8 @@ header[id] {
 /* ---------- projects ---------- */
 
 .projects {
-  background: var(--cream-2);
+  background: var(--green-dk);
+  color: var(--cream);
 }
 
 .project-grid {
@@ -1210,10 +1211,11 @@ header[id] {
 
 .win {
   background: var(--cream);
-  border: 2.5px solid var(--green-dk);
+  color: var(--green-dk);
+  border: 2.5px solid var(--green-xdk);
   border-radius: 18px;
   overflow: hidden;
-  box-shadow: 10px 10px 0 var(--green-dk);
+  box-shadow: 10px 10px 0 var(--green-xdk);
   transition: box-shadow 0.3s;
 }
 
@@ -1732,6 +1734,24 @@ header[id] {
   font-size: 16px;
   line-height: 1.5;
   flex: 1;
+}
+
+.quest-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0 0 20px;
+  padding: 0;
+  list-style: none;
+}
+
+.quest-facts li {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 4px 9px;
+  border-radius: 999px;
+  border: 1.5px solid currentColor;
 }
 
 .quest-stat-label {

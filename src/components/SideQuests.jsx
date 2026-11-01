@@ -50,6 +50,11 @@ export default function SideQuests() {
               </div>
               <h3>{quest.title}</h3>
               <p>{quest.text}</p>
+              <ul className="quest-facts">
+                {quest.facts.map((fact) => (
+                  <li key={fact}>{fact}</li>
+                ))}
+              </ul>
               <StatBar {...quest.stat} />
             </Reveal>
           ))}
