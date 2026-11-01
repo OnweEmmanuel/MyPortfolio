@@ -44,7 +44,7 @@ Requires [Node.js](https://nodejs.org) 20 or newer.
 
 ```bash
 npm install
-npm run dev       # start the dev server at http://localhost:5173
+npm run dev       # start the dev server at http://localhost:5173/MyPortfolio/
 npm run build     # make a production build in dist/
 npm run preview   # serve the production build locally
 ```
@@ -106,9 +106,13 @@ MyPortfolio/
 
 ## Deploying
 
-Run `npm run build` and host the generated `dist/` folder on any static host (Netlify, Vercel, Cloudflare Pages, GitHub Pages).
+The site deploys to GitHub Pages at **https://onweemmanuel.github.io/MyPortfolio/**.
 
-If the site is served from a sub-path (for example `https://<user>.github.io/MyPortfolio/`), set `base: "/MyPortfolio/"` in `vite.config.js` first.
+Every push to `main` runs [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml), which installs dependencies, runs `npm run build`, and publishes the `dist/` folder. You can also run it by hand from the repo's **Actions** tab.
+
+One-time setup: in the repo's **Settings → Pages → Build and deployment**, set **Source** to **GitHub Actions**.
+
+The site is served from the `/MyPortfolio/` sub-path, so `base` in [`vite.config.js`](vite.config.js) is set to match. If you move it to a custom domain or a `<user>.github.io` repo, change `base` to `"/"`.
 
 ---
 
