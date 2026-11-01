@@ -2,7 +2,7 @@
 
 Personal portfolio site for **Emmanuel Onwe**, a full-stack software engineer based in Cape Town, South Africa.
 
-A dark, terminal-inspired showcase of experience, technical stack, projects, and services — kept deliberately simple with no build step.
+A dark, terminal-inspired showcase of experience, technical stack, projects, and services, built with React and Vite.
 
 ---
 
@@ -10,20 +10,12 @@ A dark, terminal-inspired showcase of experience, technical stack, projects, and
 
 | Layer | Choice |
 | --- | --- |
-| Markup | HTML5 |
+| UI | React 19 (function components + hooks) |
+| Build | Vite |
 | Styles | Plain CSS (custom properties, responsive layout) |
-| Behaviour | Vanilla JavaScript |
 | Fonts | [Space Grotesk](https://fonts.google.com/specimen/Space+Grotesk) · [Space Mono](https://fonts.google.com/specimen/Space+Mono) (Google Fonts) |
 
-**Not used:** React, Vite, Tailwind, npm, or any framework tooling.
-
-The project is three files on purpose:
-
-```text
-index.html   # structure & content
-styles.css   # design system & layout
-script.js    # nav, scroll, motion preferences
-```
+Site content (experience, skills, projects, etc.) lives in `src/data.js`, so most edits don't touch any markup.
 
 ---
 
@@ -40,15 +32,11 @@ script.js    # nav, scroll, motion preferences
 
 ## Run locally
 
-No install required. Open the site any of these ways:
-
 ```bash
-# Option A — open directly
-open index.html
-
-# Option B — simple static server (example)
-python3 -m http.server 8080
-# then visit http://localhost:8080
+npm install
+npm run dev       # http://localhost:5173
+npm run build     # production build in dist/
+npm run preview   # serve the production build
 ```
 
 ---
@@ -57,18 +45,24 @@ python3 -m http.server 8080
 
 ```text
 MyPortfolio/
-├── index.html
-├── styles.css
-├── script.js
-├── LICENSE
-└── README.md
+├── index.html            # Vite entry (meta tags, fonts, favicons)
+├── public/assets/        # favicons, served as-is
+├── src/
+│   ├── main.jsx          # mounts <App />
+│   ├── App.jsx           # page layout
+│   ├── data.js           # all site content
+│   ├── styles.css        # design system & layout
+│   ├── components/       # one component per section + shared pieces
+│   └── hooks/            # nav state, scroll reveal, media queries
+├── package.json
+└── vite.config.js
 ```
 
 ---
 
 ## Design notes
 
-Visual direction was refined against a Lovable-generated concept, then ported into this vanilla stack so the site stays easy to host, edit, and maintain.
+Visual direction was refined against a Lovable-generated concept, first built as a vanilla HTML/CSS/JS site, then converted to React.
 
 ---
 
