@@ -1,55 +1,77 @@
 # Emmanuel Onwe — Portfolio
 
-Personal portfolio site for **Emmanuel Onwe**, a full-stack software engineer based in Cape Town, South Africa.
+Personal portfolio for **Emmanuel Onwe**, a full-stack software engineer. Career built in Cape Town, moving back to Lagos, and open to projects anywhere in the world.
 
-A dark, terminal-inspired showcase of experience, technical stack, projects, and services — kept deliberately simple with no build step.
+It's a single-page React site with a bold, playful developer theme: a self-typing code editor, scroll-driven animation, and a terminal visitors can actually type into.
 
 ---
 
-## Stack
+## What's on the page
+
+| Section | What it does |
+| --- | --- |
+| **Hero** | Big animated name, plus a tilted code editor that types Python and PHP snippets and "runs" them. Animated circuit-board background and code symbols that move with the mouse. |
+| **Marquee** | Two crossing bands of scrolling text. |
+| **Statement** | A sentence pinned to the screen that lights up word by word as you scroll. |
+| **Experience** | Career shown as a `git log`. The commit rail fills in as you scroll. |
+| **Education** | Cards for MANCOSA and WeThinkCode, linking to each school. |
+| **Stack** | Skills orbiting a `{ }` core, next to a `package.json` card. |
+| **Projects** | Browser-window cards that tilt toward the mouse. Clicking a card opens the project. |
+| **Services** | Rows that fill with orange on hover. |
+| **Contact** | Email link and a working terminal (`help`, `whoami`, `location`, `email`, `sudo hire-me`, …). |
+
+People who have "reduce motion" turned on in their device settings get a still version of the site.
+
+---
+
+## Tech stack
 
 | Layer | Choice |
 | --- | --- |
-| Markup | HTML5 |
-| Styles | Plain CSS (custom properties, responsive layout) |
-| Behaviour | Vanilla JavaScript |
-| Fonts | [Space Grotesk](https://fonts.google.com/specimen/Space+Grotesk) · [Space Mono](https://fonts.google.com/specimen/Space+Mono) (Google Fonts) |
+| UI | [React 19](https://react.dev) (function components and hooks) |
+| Animation | [Motion](https://motion.dev) for scroll-linked effects, reveals and springs; plain CSS keyframes for looping effects |
+| Build | [Vite](https://vite.dev) |
+| Styles | Plain CSS with custom properties, in one file |
+| Fonts | [Bricolage Grotesque](https://fonts.google.com/specimen/Bricolage+Grotesque) and [JetBrains Mono](https://fonts.google.com/specimen/JetBrains+Mono) from Google Fonts |
 
-**Not used:** React, Vite, Tailwind, npm, or any framework tooling.
-
-The project is three files on purpose:
-
-```text
-index.html   # structure & content
-styles.css   # design system & layout
-script.js    # nav, scroll, motion preferences
-```
+**Palette:** Mandarin Orange `#FD550A`, Forest Green `#015D47` and Crest Yellow `#E0F354` on a warm off-white `#FBF8F1`.
 
 ---
 
-## Features
+## Running it locally
 
-- Terminal / developer visual language (lime accent, sharp edges, mono labels)
-- Sticky translucent header with active-section highlighting
-- Mobile navigation
-- Smooth scrolling with reduced-motion support
-- Experience timeline, skill chips, project cards, services panels
-- Contact channels (email, phone, GitHub, LinkedIn)
-
----
-
-## Run locally
-
-No install required. Open the site any of these ways:
+Requires [Node.js](https://nodejs.org) 20 or newer.
 
 ```bash
-# Option A — open directly
-open index.html
-
-# Option B — simple static server (example)
-python3 -m http.server 8080
-# then visit http://localhost:8080
+npm install
+npm run dev       # start the dev server at http://localhost:5173
+npm run build     # make a production build in dist/
+npm run preview   # serve the production build locally
 ```
+
+---
+
+## Editing content
+
+Almost all text lives in [`src/data.js`](src/data.js), so most updates don't touch any components.
+
+| To change… | Edit in `src/data.js` |
+| --- | --- |
+| Location (hero sticker, terminal, footer) | `location` |
+| Jobs | `experience` (set `head: true` on your current role) |
+| Schools | `education` |
+| Skills in the orbit | `stackRings` (`"hot"` makes a chip orange, `"yel"` makes it yellow) |
+| Projects | `projects` (add `link` to make the card clickable; `shot` picks the illustration) |
+| Services | `services` |
+| Editor snippets | `editorSnippets` (each token is `[type, text]`, where type sets the colour) |
+| Scrolling bands | `marqueeRows` |
+| Pinned statement | `statement` (wrap a word in `*asterisks*` to make it orange) |
+
+A few things live elsewhere:
+
+- **Terminal commands:** `COMMANDS` in [`src/components/Terminal.jsx`](src/components/Terminal.jsx)
+- **The `package.json` card:** [`src/components/Stack.jsx`](src/components/Stack.jsx)
+- **Page title and description:** [`index.html`](index.html)
 
 ---
 
@@ -57,18 +79,42 @@ python3 -m http.server 8080
 
 ```text
 MyPortfolio/
-├── index.html
-├── styles.css
-├── script.js
-├── LICENSE
-└── README.md
+├── index.html                 # Vite entry: title, meta tags, fonts, favicons
+├── public/assets/favicon/     # favicons, served as-is
+├── src/
+│   ├── main.jsx               # mounts <App />
+│   ├── App.jsx                # page layout, in section order
+│   ├── data.js                # all site content
+│   ├── styles.css             # colours, typography and every section's styles
+│   ├── utils.js
+│   ├── hooks/
+│   │   ├── useActiveSection.js   # highlights the nav link for the section in view
+│   │   └── useMediaQuery.js
+│   └── components/
+│       ├── hero/              # Hero, CodeEditor (typing), Circuits (background art)
+│       ├── Nav.jsx, Cursor.jsx, ScrollProgress.jsx
+│       ├── Marquee.jsx, Statement.jsx
+│       ├── Experience.jsx, Education.jsx, Stack.jsx
+│       ├── Projects.jsx, Services.jsx
+│       ├── Contact.jsx, Terminal.jsx, MailLink.jsx, Footer.jsx
+│       └── Reveal.jsx, BlockHead.jsx   # shared: scroll-in animation, section heading
+├── package.json
+└── vite.config.js
 ```
 
 ---
 
-## Design notes
+## Deploying
 
-Visual direction was refined against a Lovable-generated concept, then ported into this vanilla stack so the site stays easy to host, edit, and maintain.
+Run `npm run build` and host the generated `dist/` folder on any static host (Netlify, Vercel, Cloudflare Pages, GitHub Pages).
+
+If the site is served from a sub-path (for example `https://<user>.github.io/MyPortfolio/`), set `base: "/MyPortfolio/"` in `vite.config.js` first.
+
+---
+
+## History
+
+This site started as a dark, vanilla HTML/CSS/JS page. It was then converted to React and redesigned into this light, orange-and-green version.
 
 ---
 
@@ -82,4 +128,4 @@ Visual direction was refined against a Lovable-generated concept, then ported in
 
 ## License
 
-See [LICENSE](./LICENSE).
+GPL-3.0. See [LICENSE](./LICENSE).
