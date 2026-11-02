@@ -311,8 +311,45 @@ export const sideQuests = [
   },
 ];
 
+// `includes` is what the client gets; `goodFor` says who it suits.
 export const services = [
-  { title: "Business websites", description: "Modern sites that bring small businesses customers." },
-  { title: "Web applications", description: "Custom apps on Laravel, .NET, React or Angular." },
-  { title: "Fixes & maintenance", description: "Bugs squashed, slow things made fast." },
+  {
+    title: "Business websites",
+    pitch: "Fast, modern websites that help small businesses and professionals get found, look credible and turn visitors into enquiries.",
+    includes: [
+      "A custom design built around your brand, not a stock template",
+      "Responsive layouts that work on phones, tablets and desktops",
+      "Contact and enquiry forms that land in your inbox",
+      "SEO basics: clear page titles, descriptions and fast load times",
+      "Domain, hosting and deployment set up for you",
+    ],
+    goodFor: "Small businesses, freelancers and personal brands",
+    stack: ["React", "Laravel", "HTML & CSS", "JavaScript"],
+  },
+  {
+    title: "Web applications",
+    pitch: "Custom software built around how your business actually works, from the database and API through to the screens your team uses every day.",
+    includes: [
+      "Dashboards, client portals and internal tools",
+      "REST APIs and integrations with the services you already use",
+      "Database design that keeps your data consistent",
+      "Background jobs and queues for slow or heavy work",
+      "User accounts, roles and permissions",
+    ],
+    goodFor: "Teams outgrowing spreadsheets and startups building a product",
+    stack: ["Laravel", "ASP.NET / C#", "Angular", "React", "MySQL", "Redis"],
+  },
+  {
+    title: "Fixes & maintenance",
+    pitch: "Keep an existing application healthy: bugs traced to their cause, slow pages made faster and code that is safer to change.",
+    includes: [
+      "Bug investigation and root-cause fixes, not quick patches",
+      "Performance work on slow pages and database queries",
+      "Framework and dependency upgrades",
+      "New features added to an existing codebase",
+      "Documentation so the next developer is not starting blind",
+    ],
+    goodFor: "Apps whose original developer has moved on, or teams with a backlog",
+    stack: ["PHP / Laravel", ".NET", "Angular", "MySQL", "Docker"],
+  },
 ];

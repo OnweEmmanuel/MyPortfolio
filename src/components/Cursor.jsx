@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { motion, useMotionValue, useReducedMotion, useSpring } from "motion/react";
 import { useMediaQuery } from "../hooks/useMediaQuery.js";
 
-const INTERACTIVE = "a, button, input, .win, .service-row, .edu-card";
+const INTERACTIVE = "a, button, input, .win, .edu-card";
 
 // Orange dot that tracks the mouse, plus a trailing ring that grows over clickable things.
 export default function Cursor() {

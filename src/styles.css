@@ -1757,73 +1757,145 @@ header[id] {
   border-top: 2.5px solid var(--green-dk);
 }
 
+/* Information, not links: no arrow, no fill, just a marker that grows on hover. */
 .service-row {
   position: relative;
   display: grid;
-  grid-template-columns: 110px 1fr 1fr 60px;
-  align-items: center;
-  gap: 20px;
-  padding: 34px 0;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: 32px 64px;
+  padding: 48px 0 48px 28px;
   border-bottom: 2.5px solid var(--green-dk);
-  overflow: hidden;
-  isolation: isolate;
-  transition: color 0.3s;
 }
 
 .service-row::before {
   content: "";
   position: absolute;
-  inset: 0;
+  left: 0;
+  top: 48px;
+  width: 6px;
+  height: 46px;
+  border-radius: 3px;
   background: var(--orange);
-  transform: translateY(101%);
-  transition: transform 0.45s cubic-bezier(0.7, 0, 0.2, 1);
-  z-index: -1;
-}
-
-.service-row:hover {
-  color: var(--cream);
+  transition: height 0.45s cubic-bezier(0.7, 0, 0.2, 1);
 }
 
 .service-row:hover::before {
-  transform: none;
+  height: calc(100% - 96px);
 }
 
 .service-row .n {
+  display: block;
   font-family: var(--mono);
   font-weight: 700;
-  font-size: 18px;
-  padding-left: 8px;
+  font-size: 15px;
+  color: var(--orange);
+  margin-bottom: 10px;
 }
 
 .service-row h3 {
-  font-size: clamp(28px, 3.4vw, 46px);
+  font-size: clamp(32px, 3.6vw, 50px);
   letter-spacing: -0.03em;
-  margin: 0;
+  margin: 0 0 18px;
   line-height: 1;
 }
 
-.service-row p {
+.service-pitch {
+  margin: 0 0 22px;
+  font-size: 18px;
+  line-height: 1.55;
+  max-width: 46ch;
+}
+
+.service-for {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 10px;
   margin: 0;
-  font-size: 17px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: var(--cream-2);
+  font-size: 15px;
 }
 
-.service-row .arr {
-  font-size: 36px;
-  transition: transform 0.4s;
+.service-for span {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--green);
 }
 
-.service-row:hover .arr {
-  transform: rotate(-45deg);
+.service-for span::after {
+  content: ":";
 }
 
-@media (max-width: 760px) {
+.service-detail h4 {
+  margin: 4px 0 14px;
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--green);
+}
+
+.service-includes {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 11px;
+}
+
+.service-includes li {
+  position: relative;
+  padding-left: 26px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.service-includes li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-family: var(--mono);
+  font-weight: 700;
+  color: var(--orange);
+}
+
+.service-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 24px 0 0;
+  padding: 18px 0 0;
+  list-style: none;
+  border-top: 1.5px dashed rgba(1, 61, 47, 0.2);
+}
+
+.service-stack li {
+  font-family: var(--mono);
+  font-size: 12px;
+  padding: 4px 9px;
+  border-radius: 6px;
+  background: var(--green-dk);
+  color: var(--cream);
+}
+
+@media (max-width: 860px) {
   .service-row {
-    grid-template-columns: 50px 1fr;
+    grid-template-columns: 1fr;
+    padding: 36px 0 36px 22px;
   }
 
-  .service-row p,
-  .service-row .arr {
-    display: none;
+  .service-row::before {
+    top: 36px;
+  }
+
+  .service-row:hover::before {
+    height: calc(100% - 72px);
+  }
+
+  .service-pitch {
+    font-size: 17px;
   }
 }
 
