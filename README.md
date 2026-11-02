@@ -17,8 +17,9 @@ It's a single-page React site with a bold, playful developer theme: a self-typin
 | **Education** | Cards for MANCOSA and WeThinkCode, linking to each school. |
 | **Stack** | Skills orbiting a `{ }` core, next to a `package.json` card. |
 | **Projects** | Browser-window cards that tilt toward the mouse. Clicking a card opens the project. |
-| **Services** | Rows that fill with orange on hover. |
+| **Services** | What I build: each service with who it suits, what's included and the stack used. |
 | **Side quests** | The fun bit: hobbies as game achievement cards (CODM, Clash of Clans, anime, manga, bowling, mini golf), each with a joke stat bar. |
+| **Pricing teaser** | Three small package cards with a link to the full pricing page. |
 | **Contact** | Email link and a working terminal (`help`, `whoami`, `location`, `hobbies`, `sudo hire-me`, …). |
 
 People who have "reduce motion" turned on in their device settings get a still version of the site.
@@ -69,6 +70,8 @@ Almost all text lives in [`src/data.js`](src/data.js), so most updates don't tou
 | Scrolling bands | `marqueeRows` |
 | Pinned statement | `statement` (wrap a word in `*asterisks*` to make it orange) |
 
+Prices live in [`src/pricing.js`](src/pricing.js). The homepage teaser and the [`/pricing/`](pricing/index.html) page both read from it, so change a price once and both update.
+
 A few things live elsewhere:
 
 - **Terminal commands:** `COMMANDS` in [`src/components/Terminal.jsx`](src/components/Terminal.jsx)
@@ -81,12 +84,15 @@ A few things live elsewhere:
 
 ```text
 MyPortfolio/
-├── index.html                 # Vite entry: title, meta tags, fonts, favicons
+├── index.html                 # homepage entry: title, meta tags, fonts, favicons
+├── pricing/index.html         # /pricing/ page entry, with its own title and description
 ├── public/assets/favicon/     # favicons (SVG + PNG sizes), served as-is
 ├── src/
-│   ├── main.jsx               # mounts <App />
+│   ├── main.jsx               # mounts <App /> (homepage)
+│   ├── pricing-main.jsx       # mounts <PricingPage />
 │   ├── App.jsx                # page layout, in section order
 │   ├── data.js                # all site content
+│   ├── pricing.js             # packages, care plans, add-ons and terms
 │   ├── styles.css             # colours, typography and every section's styles
 │   ├── utils.js
 │   ├── hooks/
@@ -98,10 +104,12 @@ MyPortfolio/
 │       ├── Marquee.jsx, Statement.jsx
 │       ├── Experience.jsx, Education.jsx, Stack.jsx
 │       ├── Projects.jsx, Services.jsx, SideQuests.jsx
+│       ├── PricingTeaser.jsx
+│       ├── pricing/           # PricingPage, Comparison (table on desktop, cards on mobile)
 │       ├── Contact.jsx, Terminal.jsx, MailLink.jsx, Footer.jsx
 │       └── Reveal.jsx, BlockHead.jsx   # shared: scroll-in animation, section heading
 ├── package.json
-└── vite.config.js
+└── vite.config.js             # base path and the two page entries
 ```
 
 ---

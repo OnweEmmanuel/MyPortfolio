@@ -12,6 +12,7 @@ export const location = {
   summary: "Cape Town → Lagos · working worldwide",
 };
 
+// `page: true` links to a separate page instead of a homepage section.
 export const navItems = [
   { id: "work", label: "work" },
   { id: "education", label: "education" },
@@ -19,6 +20,7 @@ export const navItems = [
   { id: "projects", label: "projects" },
   { id: "services", label: "services" },
   { id: "side-quests", label: "fun" },
+  { id: "pricing", label: "pricing", page: true },
   { id: "contact", label: "contact" },
 ];
 
