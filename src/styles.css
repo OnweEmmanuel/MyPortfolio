@@ -893,9 +893,9 @@ header[id] {
 .commit {
   position: relative;
   display: grid;
-  grid-template-columns: 200px 1fr;
-  gap: 30px;
-  padding: 30px 32px;
+  grid-template-columns: 190px 1fr;
+  gap: 36px;
+  padding: 32px 36px 30px;
   border-radius: 20px;
   background: rgba(1, 42, 32, 0.45);
   border: 1.5px solid rgba(224, 243, 84, 0.15);
@@ -903,9 +903,15 @@ header[id] {
 }
 
 .commit-row:hover .commit {
-  translate: 10px 0;
+  translate: 6px 0;
+  background: rgba(1, 42, 32, 0.8);
+  border-color: rgba(253, 85, 10, 0.7);
+}
+
+.commit-row.is-head .commit {
+  padding: 40px 44px 38px;
   background: var(--green-xdk);
-  border-color: var(--orange);
+  border-color: rgba(224, 243, 84, 0.3);
 }
 
 /* solder pad where the wire meets the card */
@@ -936,58 +942,249 @@ header[id] {
   margin-left: 6px;
 }
 
-.when {
+.when,
+.duration {
   font-family: var(--mono);
   font-size: 13px;
-  opacity: 0.7;
-  margin-top: 8px;
+  margin: 10px 0 0;
+}
+
+.when {
+  opacity: 0.85;
+}
+
+.duration {
+  margin-top: 4px;
+  opacity: 0.55;
+}
+
+.duration::before {
+  content: "~ ";
 }
 
 .commit h3 {
-  font-size: clamp(26px, 3vw, 38px);
+  font-size: clamp(28px, 3vw, 40px);
   margin: 0 0 4px;
   letter-spacing: -0.02em;
+  line-height: 1.05;
 }
 
 .commit .role {
   color: var(--yellow);
-  font-weight: 500;
-  margin: 0 0 14px;
+  font-weight: 600;
+  margin: 0 0 16px;
   font-size: 18px;
 }
 
-.commit ul {
+.commit-summary {
+  margin: 0 0 24px;
+  max-width: 68ch;
+  font-size: 17px;
+  line-height: 1.6;
+  opacity: 0.92;
+}
+
+.commit-groups {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 26px 40px;
+  padding-top: 24px;
+  border-top: 1px dashed rgba(224, 243, 84, 0.18);
+}
+
+.commit-groups h4 {
+  margin: 0 0 10px;
+  font-family: var(--mono);
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--yellow);
+  opacity: 0.85;
+}
+
+.commit-points {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 10px;
+  max-width: 72ch;
+}
+
+.commit-points li {
+  position: relative;
+  padding-left: 22px;
+  font-size: 15.5px;
+  line-height: 1.55;
+  color: rgba(251, 248, 241, 0.82);
+}
+
+/* diff-style marker */
+.commit-points li::before {
+  content: "+";
+  position: absolute;
+  left: 2px;
+  top: 0;
+  font-family: var(--mono);
+  font-weight: 700;
+  color: var(--yellow);
+}
+
+.commit-tags {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-top: 26px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.commit-tags > span {
+  flex: none;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--orange);
+}
+
+.commit-tags > span::after {
+  content: ":";
+}
+
+.commit-tags ul {
   margin: 0;
   padding: 0;
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 6px;
 }
 
-.commit li {
+.commit-tags li {
   font-family: var(--mono);
-  font-size: 12.5px;
-  padding: 6px 11px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.07);
+  font-size: 12px;
+  padding: 4px 9px;
+  border-radius: 6px;
+  border: 1px solid rgba(224, 243, 84, 0.2);
+  color: rgba(251, 248, 241, 0.85);
+  transition: border-color 0.25s, color 0.25s;
 }
 
-.commit li::before {
-  content: "+ ";
+.commit-tags li:hover {
+  border-color: var(--yellow);
   color: var(--yellow);
 }
 
-@media (max-width: 760px) {
+/* career summary, like the footer of `git log --stat` */
+.exp-stat {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: -20px 0 56px;
+  border: 1.5px solid rgba(224, 243, 84, 0.15);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.exp-stat > div {
+  padding: 22px 26px;
+}
+
+.exp-stat > div + div {
+  border-left: 1.5px solid rgba(224, 243, 84, 0.15);
+}
+
+.exp-stat dt {
+  font-size: clamp(30px, 3.4vw, 46px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--yellow);
+}
+
+.exp-stat > div:first-child dt {
+  color: var(--orange);
+}
+
+.exp-stat dd {
+  margin: 8px 0 0;
+  font-family: var(--mono);
+  font-size: 13px;
+  opacity: 0.75;
+}
+
+@media (max-width: 960px) {
   .commit {
     grid-template-columns: 1fr;
-    gap: 10px;
-    padding: 24px;
+    gap: 14px;
+  }
+
+  .commit-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 4px 16px;
+  }
+
+  .when,
+  .duration {
+    margin: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  .commit,
+  .commit-row.is-head .commit {
+    padding: 22px 18px;
+  }
+
+  .commit-points li {
+    padding-left: 18px;
+    font-size: 15px;
+  }
+
+  .commit-points li::before {
+    left: 0;
+  }
+
+  .commit-groups {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .commit-summary {
+    font-size: 16px;
+  }
+
+  .commit-tags {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .exp-stat {
+    grid-template-columns: 1fr;
+    margin-top: -24px;
+  }
+
+  .exp-stat > div {
+    padding: 16px 20px;
+  }
+
+  .exp-stat dt {
+    font-size: 30px;
+  }
+
+  .exp-stat > div + div {
+    border-left: 0;
+    border-top: 1.5px solid rgba(224, 243, 84, 0.15);
+  }
+
+  .exp-stat dd {
+    margin-top: 6px;
   }
 
   .graph {
-    --gutter: 44px;
-    --rail-x: 12px;
+    --gutter: 32px;
+    --rail-x: 10px;
     --node: 18px;
     --node-top: 28px;
   }

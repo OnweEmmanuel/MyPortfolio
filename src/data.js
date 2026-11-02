@@ -57,35 +57,105 @@ export const marqueeRows = [
 export const statement =
   "I turn messy business *problems* into clean, fast, *shipped* software, from the database all the way to the *button* you click.";
 
+// Career summary shown above the timeline.
+export const experienceSummary = [
+  { value: "5+", label: "years building software professionally" },
+  { value: "4", label: "roles, from intern to full-stack engineer" },
+  { value: "2019 → 2026", label: "across fintech, SaaS and tech education" },
+];
+
+// Dates are "YYYY-MM" or "YYYY". When both ends have a month, the duration is
+// worked out automatically. Roles use `groups` (headed lists) or `points`
+// (a flat list). `stack` shows technologies; `focus` shows areas of work.
 export const experience = [
   {
     hash: "a3f9c14",
     head: true,
     company: "InfoDocs",
-    role: "Full-Stack Engineer",
-    date: "May 2024 → Sept 2026",
-    points: ["API endpoints", "new features", "UI components", "data integrity", "bug fixes"],
+    role: "Full-Stack Software Engineer",
+    start: "2024-05",
+    end: "2026-09",
+    summary:
+      "Full-stack engineering on InfoDocs, a company-secretarial SaaS platform. I worked across the Laravel backend and the Angular frontend, building and maintaining the APIs, background processing and user-facing workflows the product runs on, and tracing production issues from the interface down to the database.",
+    groups: [
+      {
+        title: "backend",
+        points: [
+          "Developed and maintained backend features in PHP and Laravel 11, implementing business logic in service classes composed through dependency injection.",
+          "Built and maintained RESTful API endpoints for the Angular frontend, using Postman to test request and response contracts as they changed.",
+          "Implemented background jobs on Redis queues, monitored through Laravel Horizon, moving slow work out of the request cycle with explicit failure handling and logging.",
+        ],
+      },
+      {
+        title: "database",
+        points: [
+          "Wrote and maintained the MySQL queries and model relationships behind data-driven features, with a focus on data integrity across related records.",
+          "Optimised database interactions where features needed it, and kept structured data consistent at the application level.",
+        ],
+      },
+      {
+        title: "frontend",
+        points: [
+          "Built and improved features in Angular and TypeScript, integrating components with backend APIs.",
+          "Refined existing user-facing workflows and responsive layouts across the application.",
+        ],
+      },
+      {
+        title: "quality & delivery",
+        points: [
+          "Investigated and resolved production issues across frontend and backend, using application logs to find root causes instead of patching symptoms.",
+          "Reviewed and raised pull requests on Bitbucket, tracked work in Jira, and followed the team's development and deployment process.",
+          "Wrote and maintained technical documentation so features stayed understandable after they shipped.",
+        ],
+      },
+    ],
+    stack: ["PHP", "Laravel 11", "MySQL", "Redis", "Laravel Horizon", "Angular", "TypeScript", "JavaScript", "REST APIs", "Docker", "Git", "Bitbucket", "Jira", "Postman"],
   },
   {
     hash: "7be2101",
     company: "EasyCrypto",
     role: "Full-Stack Developer",
-    date: "Feb 2021 → Nov 2023",
-    points: ["team delivery", "testing", "improvements", "pair programming"],
+    start: "2021-02",
+    end: "2023-11",
+    summary:
+      "Full-stack developer on EasyCrypto, the cryptocurrency platform from EasyEquities. I joined the product team on an established ASP.NET and C# codebase, delivering features and improvements across the frontend and backend, and took part in the team's testing and pair programming.",
+    points: [
+      "Developed and maintained full-stack application features in ASP.NET and C#, from user interface implementation through to backend logic and API integration.",
+      "Wrote and maintained SQL stored procedures behind the platform's data access, and connected frontend views to backend services through REST APIs.",
+      "Debugged and troubleshot issues across the stack, improving how established features behaved inside an existing codebase.",
+      "Tested new and changed functionality before release, working through Azure DevOps as part of the team's delivery process.",
+      "Pair-programmed with other developers to work through problems, share context and keep the codebase consistent.",
+    ],
+    stack: ["ASP.NET", "C#", "SQL Stored Procedures", "REST APIs", "Azure DevOps"],
   },
   {
     hash: "c04d9e2",
-    company: "WeThinkCode",
+    company: "WeThinkCode_",
     role: "Technical Assistant & Mentor",
-    date: "2020 → 2021",
-    points: ["student support", "onboarding"],
+    start: "2020",
+    end: "2021",
+    summary:
+      "Supported students on WeThinkCode_'s software development programme, helping them get unstuck without handing them the answer.",
+    points: [
+      "Helped students work through programming concepts and practical exercises, explaining technical ideas in clear, practical terms.",
+      "Guided students through debugging their own code: reading errors, isolating the problem and testing their assumptions.",
+      "Encouraged independent problem-solving by asking the questions that lead to an answer rather than giving it away.",
+      "Supported onboarding for new students and helped keep the learning environment collaborative.",
+    ],
+    focus: ["Mentorship", "Technical Communication", "Debugging", "Onboarding"],
   },
   {
     hash: "0001init",
-    company: "WeThinkCode",
+    company: "WeThinkCode_",
     role: "Developer Intern",
-    date: "2019",
-    points: ["built Staff Views", "unified student data"],
+    start: "2019",
+    end: "2019",
+    summary: "Where my professional career started: building working software for real users.",
+    points: [
+      "Built Staff Views, an internal system that aggregated student data into a single, unified interface for staff.",
+      "Gained hands-on experience of the full development process, from understanding what staff needed to delivering a working tool.",
+    ],
+    focus: ["Internal Tooling", "Data Aggregation"],
   },
 ];
 
@@ -96,7 +166,15 @@ export const education = [
     qualification: "Bachelor of Commerce in Information Technology Management",
     field: "Information Technology",
     dates: "Jan 2023 – Dec 2026",
-    skills: ["Java", "Databases", "+3 skills"],
+    skills: [
+      "Java",
+      "Databases",
+      "Software Engineering Practice",
+      "Systems Analysis & Design",
+      "IT Law & Ethics",
+      "Auditing",
+      "Capstone Project",
+    ],
   },
   {
     name: "WeThinkCode",
@@ -104,7 +182,7 @@ export const education = [
     qualification: "MICT SETA NQF Level 5",
     field: "Computer Programming",
     dates: "2018 – 2020",
-    skills: ["Object-Oriented Programming", "Full-Stack Development"],
+    skills: ["C", "C++", "Java", "PHP", "Angular", "Bash", "Makefile", "Docker", "Object-Oriented Programming", "Full-Stack Development"],
   },
 ];
 
