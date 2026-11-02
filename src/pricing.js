@@ -10,9 +10,9 @@ export const pricingIntro =
 
 // `popular` marks the highlighted package.
 export const packages = [
-  { id: "starter", name: "Starter", price: 150, bestFor: "Job seekers who need a link fast" },
-  { id: "professional", name: "Professional", price: 300, bestFor: "Professionals and consultants", popular: true },
-  { id: "signature", name: "Signature", price: 550, bestFor: "Senior people, creatives, academics" },
+  { id: "starter", name: "Starter", price: 100, bestFor: "Job seekers who need a link fast" },
+  { id: "professional", name: "Professional", price: 250, bestFor: "Professionals and consultants", popular: true },
+  { id: "signature", name: "Signature", price: 400, bestFor: "Senior people, creatives, academics" },
 ];
 
 export const startingPrice = Math.min(...packages.map((pkg) => pkg.price));
