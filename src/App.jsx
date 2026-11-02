@@ -10,6 +10,7 @@ import Stack from "./components/Stack.jsx";
 import Projects from "./components/Projects.jsx";
 import Services from "./components/Services.jsx";
 import SideQuests from "./components/SideQuests.jsx";
+import PricingTeaser from "./components/PricingTeaser.jsx";
 import Contact from "./components/Contact.jsx";
 import Footer from "./components/Footer.jsx";
 
@@ -30,6 +31,7 @@ export default function App() {
         <Projects />
         <Services />
         <SideQuests />
+        <PricingTeaser />
         <Contact />
       </main>
 

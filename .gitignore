@@ -3,3 +3,6 @@ dist
 .DS_Store
 .claude
 .vite
+
+# Client tracker and business docs hold client data; keep them off GitHub
+business/
