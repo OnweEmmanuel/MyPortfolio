@@ -100,6 +100,30 @@ function Shot({ type }) {
     );
   }
 
+  if (type === "kepa") {
+    return (
+      <div className="shot shot-kepa">
+        <div className="kepa-mini">
+          <span className="kepa-mini-label">THIS MONTH · NOVEMBER</span>
+          <span className="kepa-mini-total">R3,541.97</span>
+          <span className="kepa-mini-bar">
+            <motion.i
+              initial={{ width: 0 }}
+              whileInView={{ width: "64%" }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.2, delay: 0.4, ease: [0.2, 0.9, 0.2, 1] }}
+            />
+          </span>
+          <span className="kepa-mini-row">
+            <b className="dot" />
+            Netflix <em>tomorrow</em> <span>R199.00</span>
+          </span>
+        </div>
+        <img className="kepa-mini-mark" src={`${import.meta.env.BASE_URL}assets/kepa/kepa-mark.png`} alt="" />
+      </div>
+    );
+  }
+
   if (type === "portfolio") {
     return (
       <div className="shot shot-portfolio">
@@ -179,7 +203,11 @@ function ProjectWindow({ project, index }) {
         <h3>{project.title}</h3>
         <p>{project.description}</p>
         {project.link && (
-          <a className="more" href={project.link.href} target="_blank" rel="noopener noreferrer">
+          <a
+            className="more"
+            href={project.link.href}
+            {...(project.link.internal ? {} : { target: "_blank", rel: "noopener noreferrer" })}
+          >
             {project.link.label} <span aria-hidden="true">→</span>
           </a>
         )}

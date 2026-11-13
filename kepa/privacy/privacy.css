@@ -1,0 +1,258 @@
+/* Kepa privacy policy: a quiet, readable page. Kepa's own colours (gunmetal,
+   fog silver, molten orange) in the header; the site's cream for reading.
+   Follows the phone's light or dark setting. */
+
+:root {
+  --kp-gunmetal: #121417;
+  --kp-surface: #1c1f24;
+  --kp-silver: #d9dce1;
+  --kp-muted: #9aa0a9;
+  --kp-orange: #ff5a1f;
+  --kp-line: #2a2e35;
+
+  --bg: #fbf8f1;
+  --text: #1d2a26;
+  --muted: #55605c;
+  --rule: rgba(18, 20, 23, 0.12);
+  --card: #ffffff;
+  /* Orange as text on cream needs the darker shade to stay readable. */
+  --link: #b3380d;
+
+  --display: "Bricolage Grotesque", system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: var(--kp-gunmetal);
+    --text: var(--kp-silver);
+    --muted: var(--kp-muted);
+    --rule: var(--kp-line);
+    --card: var(--kp-surface);
+    --link: var(--kp-orange);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--display);
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-text-size-adjust: 100%;
+}
+
+a {
+  color: var(--link);
+  text-underline-offset: 3px;
+}
+
+.kp-wrap {
+  width: min(760px, 100% - 32px);
+  margin-inline: auto;
+}
+
+/* ---------- header ---------- */
+
+.kp-head {
+  background: var(--kp-gunmetal);
+  color: var(--kp-silver);
+  padding: 20px 0 48px;
+  border-bottom: 1px solid var(--kp-line);
+}
+
+.kp-head-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 56px;
+}
+
+.kp-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--kp-silver);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: -0.02em;
+}
+
+.kp-brand img {
+  display: block;
+}
+
+.kp-back {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--kp-orange);
+  text-decoration: none;
+}
+
+.kp-back:hover {
+  text-decoration: underline;
+}
+
+.kp-kicker {
+  margin: 0 0 10px;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--kp-muted);
+}
+
+.kp-head h1 {
+  margin: 0;
+  font-size: clamp(40px, 8vw, 64px);
+  line-height: 1;
+  letter-spacing: -0.035em;
+  font-weight: 800;
+}
+
+/* ---------- policy ---------- */
+
+.kp-policy {
+  padding: 40px 0 64px;
+}
+
+.kp-policy h2 {
+  margin: 44px 0 10px;
+  font-size: clamp(24px, 4vw, 30px);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+.kp-policy p,
+.kp-policy ul {
+  margin: 0 0 14px;
+}
+
+.kp-policy ul {
+  padding-left: 1.2em;
+}
+
+.kp-policy li {
+  margin-bottom: 8px;
+}
+
+.kp-policy li::marker {
+  color: var(--kp-orange);
+}
+
+.kp-policy .meta {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.kp-policy .meta em {
+  font-style: normal;
+}
+
+.table-wrap {
+  margin: 16px 0 18px;
+}
+
+.kp-policy table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15.5px;
+  line-height: 1.5;
+}
+
+.kp-policy th,
+.kp-policy td {
+  text-align: left;
+  vertical-align: top;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.kp-policy thead th {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.kp-policy tbody th {
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* Phones: each permission becomes a card, every one the full width. */
+@media (max-width: 640px) {
+  .kp-policy table,
+  .kp-policy tbody,
+  .kp-policy tr,
+  .kp-policy th,
+  .kp-policy td {
+    display: block;
+    width: 100%;
+  }
+
+  .kp-policy thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+
+  .kp-policy tr {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-radius: 14px;
+    padding: 6px 0;
+    margin-bottom: 10px;
+  }
+
+  .kp-policy th,
+  .kp-policy td {
+    border: 0;
+    padding: 6px 16px;
+  }
+
+  .kp-policy tbody th {
+    white-space: normal;
+    font-size: 16.5px;
+  }
+
+  .kp-policy td::before {
+    content: attr(data-label);
+    display: block;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+}
+
+/* ---------- footer ---------- */
+
+.kp-foot {
+  border-top: 1px solid var(--rule);
+  padding: 24px 0 32px;
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.kp-foot-row {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+}

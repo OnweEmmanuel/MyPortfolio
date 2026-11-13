@@ -202,6 +202,16 @@ export const stackRings = [
 
 export const projects = [
   {
+    title: "Kepa",
+    badge: "ANDROID APP · 2026",
+    url: "kepa › android",
+    shot: "kepa",
+    description:
+      "A free, private tracker for subscriptions, debit orders, renewals and warranties, built in Flutter for West and Southern Africa. Reminders, bank-statement import and on-device slip scanning; nothing leaves the phone.",
+    // Opens the Kepa page on this site (same tab); the code is private.
+    link: { label: "see kepa", href: `${import.meta.env.BASE_URL}kepa/`, internal: true },
+  },
+  {
     title: "InfoDocs",
     badge: "PLATFORM · 2024–26",
     url: "infodocs.co.za",
