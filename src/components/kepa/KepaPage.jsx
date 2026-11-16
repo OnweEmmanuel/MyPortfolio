@@ -40,7 +40,7 @@ function StoreStatus() {
   }
   return (
     <ul className="kepa-status" aria-label="Where to get Kepa">
-      <li className="soon">Coming soon to Google Play</li>
+      <li className="soon">In closed testing on Google Play</li>
       <li>iPhone later</li>
     </ul>
   );
