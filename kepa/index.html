@@ -9,6 +9,42 @@
       content="Kepa tracks subscriptions, debit orders, renewals and warranties, and reminds you before money leaves your account. Free, private, no sign-up. Built by Emmanuel Onwe."
     />
     <meta name="theme-color" content="#121417" />
+    <link rel="canonical" href="https://onweemmanuel.github.io/MyPortfolio/kepa/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Emmanuel Onwe" />
+    <meta property="og:url" content="https://onweemmanuel.github.io/MyPortfolio/kepa/" />
+    <meta name="twitter:card" content="summary" />
+    <script type="application/ld+json">
+{
+      "@context": "https://schema.org",
+      "@type": "MobileApplication",
+      "@id": "https://onweemmanuel.github.io/MyPortfolio/kepa/#app",
+      "name": "Kepa",
+      "url": "https://onweemmanuel.github.io/MyPortfolio/kepa/",
+      "description": "Kepa tracks subscriptions, debit orders, renewals and warranties, and reminds you before money leaves your account. Free, private, no sign-up.",
+      "operatingSystem": "Android",
+      "applicationCategory": "FinanceApplication",
+      "image": "https://onweemmanuel.github.io/MyPortfolio/assets/kepa/kepa-icon.png",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "author": {
+        "@type": "Person",
+        "@id": "https://onweemmanuel.github.io/MyPortfolio/#person",
+        "name": "Emmanuel Onwe",
+        "url": "https://onweemmanuel.github.io/MyPortfolio/"
+      }
+    }
+    </script>
+    <style>
+      /* Plain text shown until React renders, so crawlers and slow loads still see who and what this page is. */
+      .prerender { max-width: 40rem; margin: 18vh auto 0; padding: 0 16px; font-family: "Bricolage Grotesque", system-ui, sans-serif; color: #013d2f; line-height: 1.5; }
+      .prerender h1 { margin: 0 0 .25em; font-size: clamp(2rem, 6vw, 3rem); line-height: 1.1; }
+      .prerender a { color: #015d47; }
+      html { background: #fbf8f1; }
+    </style>
     <meta property="og:title" content="Kepa: never get caught by a debit order again" />
     <meta
       property="og:description"
@@ -25,7 +61,13 @@
     <link rel="apple-touch-icon" href="/assets/kepa/kepa-icon-192.png" />
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <main class="prerender">
+        <h1>Kepa</h1>
+        <p>A free, private subscription and debit order tracker for Android. Kepa tracks subscriptions, debit orders, renewals and warranties, and reminds you before money leaves your account. Everything stays on your phone.</p>
+        <p>Built by <a href="../">Emmanuel Onwe</a>. Currently in closed testing on Google Play. <a href="privacy/">Privacy policy</a></p>
+      </main>
+    </div>
     <script type="module" src="/src/kepa-main.jsx"></script>
   </body>
 </html>
