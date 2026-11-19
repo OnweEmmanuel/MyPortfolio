@@ -9,6 +9,21 @@
       content="Pricing for personal CV websites by Emmanuel Onwe: packages from $100, monthly care plans, add-ons and how it works. All prices in USD."
     />
     <meta name="theme-color" content="#fbf8f1" />
+    <link rel="canonical" href="https://onweemmanuel.github.io/MyPortfolio/pricing/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Emmanuel Onwe" />
+    <meta property="og:url" content="https://onweemmanuel.github.io/MyPortfolio/pricing/" />
+    <meta property="og:title" content="Pricing | Emmanuel Onwe" />
+    <meta property="og:description" content="Pricing for personal CV websites by Emmanuel Onwe: packages from $100, monthly care plans, add-ons and how it works. All prices in USD." />
+    <meta property="og:image" content="https://onweemmanuel.github.io/MyPortfolio/assets/og/emmanuel-dev-mark.png" />
+    <meta name="twitter:card" content="summary" />
+    <style>
+      /* Plain text shown until React renders, so crawlers and slow loads still see who and what this page is. */
+      .prerender { max-width: 40rem; margin: 18vh auto 0; padding: 0 16px; font-family: "Bricolage Grotesque", system-ui, sans-serif; color: #013d2f; line-height: 1.5; }
+      .prerender h1 { margin: 0 0 .25em; font-size: clamp(2rem, 6vw, 3rem); line-height: 1.1; }
+      .prerender a { color: #015d47; }
+      html { background: #fbf8f1; }
+    </style>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -23,7 +38,12 @@
     <link rel="apple-touch-icon" href="/assets/favicon/apple-touch-icon.png" sizes="180x180" />
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <main class="prerender">
+        <h1>Pricing</h1>
+        <p>Personal CV websites by <a href="../">Emmanuel Onwe</a>: packages from $100, monthly care plans and add-ons. All prices in USD.</p>
+      </main>
+    </div>
     <script type="module" src="/src/pricing-main.jsx"></script>
   </body>
 </html>
