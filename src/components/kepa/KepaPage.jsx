@@ -30,19 +30,26 @@ function Phone({ screen, className = "" }) {
   );
 }
 
-function StoreStatus() {
-  if (KEPA_PLAY_URL) {
-    return (
-      <a className="btn btn-orange" href={KEPA_PLAY_URL} target="_blank" rel="noopener noreferrer">
-        Get it on Google Play <span aria-hidden="true">→</span>
-      </a>
-    );
-  }
+function MailIcon() {
   return (
-    <ul className="kepa-status" aria-label="Where to get Kepa">
-      <li className="soon">In closed testing on Google Play</li>
-      <li>iPhone later</li>
-    </ul>
+    <svg className="kepa-btn-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+      <rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" strokeWidth="1.8" />
+      <path d="m4 7 8 6 8-6" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+/* Status is information, not an action: a dot and a line of text, never a box. */
+function StoreNote() {
+  if (KEPA_PLAY_URL) return null;
+  return (
+    <p className="kepa-status">
+      <span className="kepa-status-dot" aria-hidden="true" />
+      <span>
+        In closed testing on Google Play<span className="kepa-status-sep"> · </span>
+        <span className="kepa-status-later">iPhone later</span>
+      </span>
+    </p>
   );
 }
 
@@ -73,12 +80,18 @@ export default function KepaPage() {
                 {kepaIntro}
               </Reveal>
               <Reveal className="kepa-actions" delay={0.2}>
-                <StoreStatus />
-                <div className="btns">
+                <StoreNote />
+                <div className="kepa-btns">
+                  {KEPA_PLAY_URL && (
+                    <a className="btn kepa-btn kepa-btn-play" href={KEPA_PLAY_URL} target="_blank" rel="noopener noreferrer">
+                      Get it on Google Play <span aria-hidden="true">→</span>
+                    </a>
+                  )}
                   <a className="btn kepa-btn" href={KEPA_PRIVACY_PATH}>
-                    Privacy policy
+                    Privacy policy <span className="kepa-btn-arrow" aria-hidden="true">→</span>
                   </a>
                   <a className="btn kepa-btn ghost" href={`mailto:${KEPA_EMAIL}?subject=Kepa`}>
+                    <MailIcon />
                     {KEPA_EMAIL}
                   </a>
                 </div>

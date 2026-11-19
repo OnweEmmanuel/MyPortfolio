@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "matter-js": "^0.20.0",
     "motion": "^12.43.0",
     "react": "^19.3.1",
     "react-dom": "^19.3.1"

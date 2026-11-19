@@ -190,13 +190,28 @@ export const education = [
 
 // Orbit rings, innermost first. `inset` is the ring's distance from the edge, as % of the orbit.
 // Chip styles: "hot" = orange, "yel" = yellow.
-export const stackRings = [
-  { inset: 26, seconds: 26, skills: [["React", "hot"], ["TypeScript"], ["Angular", "yel"], ["JavaScript"]] },
-  { inset: 14, seconds: 40, offset: 20, skills: [["Laravel", "hot"], ["PHP"], [".NET", "yel"], ["C#"], ["Node.js"]] },
+// The stack, by group. Each tool appears once; the group sets its colour
+// in the chip pile.
+export const stackGroups = [
   {
-    inset: 2,
-    seconds: 60,
-    skills: [["Docker"], ["MySQL", "yel"], ["Redis"], ["Python", "hot"], ["Git"], ["Azure DevOps"], ["MongoDB"], ["Linux"]],
+    label: "languages",
+    skills: ["TypeScript", "JavaScript", "PHP", "C#", "Dart", "Kotlin", "Python", "Java", "C", "C++"],
+  },
+  {
+    label: "frameworks",
+    skills: ["Laravel", "Angular", "React", ".NET", "Flutter", "Compose Multiplatform", "Node.js", "Express", "Tailwind CSS", "Riverpod", "RxJS", "GSAP", "Remotion"],
+  },
+  {
+    label: "data",
+    skills: ["PostgreSQL", "MySQL", "SQLite", "Redis", "MongoDB", "Drift"],
+  },
+  {
+    label: "infra",
+    skills: ["Docker", "Docker Compose", "Nginx", "Linux", "Git", "GitHub", "Azure DevOps", "Laravel Horizon"],
+  },
+  {
+    label: "tooling",
+    skills: ["Vite", "ML Kit", "PHPUnit", "Vitest", "Postman", "Google Play Console", "Jira"],
   },
 ];
 

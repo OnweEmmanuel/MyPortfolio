@@ -31,7 +31,7 @@ const COMMANDS = {
       anywhere in the world.
     </>
   ),
-  stack: () => "laravel · .net · react · angular · typescript · mysql · redis · docker",
+  stack: () => "laravel · .net · react · angular · flutter · kotlin · typescript · postgresql · mysql · redis · docker",
   email: () => {
     window.open(GMAIL_COMPOSE_URL, "_blank", "noopener,noreferrer");
     return (
