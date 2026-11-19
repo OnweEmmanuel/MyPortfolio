@@ -1285,74 +1285,201 @@ header[id] {
 
 .stack-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 50px;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
+  gap: 56px;
   align-items: center;
 }
 
-.orbit {
+/* The pile: a framed box with a legend bar on top and the tank below.
+   Beside the card it stretches to the card's height; stacked, the script
+   sizes the tank to the pile. The dots are a faint grid to read motion by. */
+.pile {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid var(--green-dk);
+  border-radius: 22px;
+  background: var(--cream);
+  box-shadow: 8px 8px 0 var(--green-dk);
+  overflow: hidden;
+}
+
+.pile-tank {
   position: relative;
-  width: min(580px, 100%);
-  aspect-ratio: 1;
-  margin-inline: auto;
+  height: 440px;
+  overflow: hidden;
+  background: radial-gradient(rgba(1, 61, 47, 0.14) 1.2px, transparent 1.2px) 0 0 / 20px 20px;
 }
 
-.orbit-core {
+@media (min-width: 961px) {
+  .stack-grid {
+    align-items: stretch;
+  }
+
+  .pile-col {
+    display: flex;
+  }
+
+  .pile {
+    flex: 1;
+  }
+
+  .pile-tank {
+    flex: 1;
+    height: auto;
+    min-height: 0;
+  }
+}
+
+.pile-hint {
   position: absolute;
-  inset: 38%;
-  border-radius: 50%;
-  background: var(--green-dk);
-  display: grid;
-  place-items: center;
-  color: var(--yellow);
+  top: 14px;
+  left: 18px;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: rgba(1, 61, 47, 0.5);
+  pointer-events: none;
+}
+
+.pile-chip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* Parked above the box until the drop starts. */
+  transform: translateY(-200px);
   font-family: var(--mono);
   font-weight: 700;
-  font-size: clamp(26px, 3.6vw, 44px);
-  box-shadow: 0 0 0 14px rgba(1, 93, 71, 0.12), 0 0 0 30px rgba(1, 93, 71, 0.06);
-  animation: breathe 4s ease-in-out infinite;
-}
-
-@keyframes breathe {
-  50% { box-shadow: 0 0 0 22px rgba(1, 93, 71, 0.12), 0 0 0 46px rgba(1, 93, 71, 0.05); }
-}
-
-.orbit-ring {
-  position: absolute;
-  border: 2px dashed rgba(1, 61, 47, 0.22);
-  border-radius: 50%;
-  animation: spin linear infinite;
-}
-
-.orbit-chip {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  will-change: transform;
-}
-
-.orbit-chip span {
-  display: block;
-  transform: translate(-50%, -50%);
-  font-family: var(--mono);
-  font-weight: 700;
-  font-size: 13px;
-  padding: 8px 13px;
+  /* --chip-scale is set by the script so the pile fills the tank. */
+  font-size: calc(13px * var(--chip-scale, 1));
+  line-height: 1;
+  padding: 0.7em 1.08em;
   border-radius: 999px;
   white-space: nowrap;
   border: 2px solid var(--green-dk);
   background: var(--cream);
-  box-shadow: 3px 3px 0 var(--green-dk);
+  color: var(--green-dk);
+  cursor: grab;
+  /* Chips take the touch; empty space in the box still scrolls the page. */
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  will-change: transform;
 }
 
-.orbit-chip.hot span {
-  background: var(--orange);
-  color: var(--cream);
-  border-color: var(--orange-dk);
-  box-shadow: 3px 3px 0 var(--orange-dk);
+.pile-chip.grabbed {
+  cursor: grabbing;
+  box-shadow: 0 10px 18px rgba(1, 42, 32, 0.25);
+  z-index: 1;
 }
 
-.orbit-chip.yel span {
-  background: var(--yellow);
+/* One colour per group, used by the chips and the legend dots. */
+.g-languages { --chip-bg: var(--orange); --chip-fg: var(--cream); --chip-line: var(--orange-dk); }
+.g-frameworks { --chip-bg: var(--green-dk); --chip-fg: var(--cream); --chip-line: var(--green-xdk); }
+.g-data { --chip-bg: var(--yellow); --chip-fg: var(--green-dk); --chip-line: var(--green-dk); }
+.g-infra { --chip-bg: var(--cream); --chip-fg: var(--green-dk); --chip-line: var(--green-dk); }
+.g-tooling { --chip-bg: var(--code-string); --chip-fg: var(--green-dk); --chip-line: var(--green-dk); }
+
+.pile-chip[class*="g-"] {
+  background: var(--chip-bg);
+  color: var(--chip-fg);
+  border-color: var(--chip-line);
+}
+
+.pile-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 16px;
+  padding: 12px 16px;
+  border-bottom: 2px solid var(--green-dk);
+  position: relative;
+  z-index: 1;
+  background: var(--cream);
+}
+
+.pile-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--mono);
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--green-dk);
+}
+
+.pile-legend li {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.pile-legend li::before {
+  content: "";
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--chip-bg);
+  border: 1.5px solid var(--chip-line);
+}
+
+.pile-legend b {
+  font-weight: 500;
+  color: var(--orange-dk);
+}
+
+.pile-again {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--green-dk);
+  background: transparent;
+  border: 2px solid var(--green-dk);
+  border-radius: 999px;
+  padding: 7px 14px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.pile-again:hover {
+  background: var(--green-dk);
+  color: var(--yellow);
+}
+
+.pile-again:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 3px;
+}
+
+/* Reduced motion: no physics, every chip simply wrapped in the box. */
+.pile-tank.still {
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 10px;
+  padding: 22px;
+}
+
+.pile-tank.still .pile-chip {
+  position: static;
+  transform: none;
+  cursor: auto;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .pkg {
@@ -1381,14 +1508,24 @@ header[id] {
 }
 
 @media (max-width: 560px) {
-  .orbit-chip span {
-    font-size: 10.5px;
-    padding: 5px 9px;
+  .pile-chip {
+    font-size: calc(11.5px * var(--chip-scale, 1));
+  }
+
+  .pile {
+    box-shadow: 5px 5px 0 var(--green-dk);
   }
 
   .pkg {
     font-size: 12px;
     padding: 20px;
+  }
+}
+
+@media (max-width: 420px) {
+  .pkg {
+    font-size: 11px;
+    padding: 18px;
   }
 }
 
