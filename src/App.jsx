@@ -1,4 +1,3 @@
-import Cursor from "./components/Cursor.jsx";
 import Nav from "./components/Nav.jsx";
 import ScrollProgress from "./components/ScrollProgress.jsx";
 import Hero from "./components/hero/Hero.jsx";
@@ -18,7 +17,6 @@ export default function App() {
   return (
     <>
       <ScrollProgress />
-      <Cursor />
       <Nav />
 
       <main>

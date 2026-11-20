@@ -314,7 +314,7 @@ export default function Stack() {
   return (
     <section className="block stack" id="stack">
       <div className="wrap">
-        <BlockHead title={<>The stack<span className="accent">.</span></>} cmd="package.json" cmdClassName="yellow" />
+        <BlockHead title="The stack" cmd="package.json" cmdClassName="yellow" />
         <div className="stack-grid">
           <Reveal className="pile-col">
             <ChipPile />

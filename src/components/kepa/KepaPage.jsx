@@ -10,7 +10,6 @@ import {
   kepaScreens,
   kepaStack,
 } from "../../kepa.js";
-import Cursor from "../Cursor.jsx";
 import Footer from "../Footer.jsx";
 import Nav from "../Nav.jsx";
 import Reveal from "../Reveal.jsx";
@@ -59,7 +58,6 @@ export default function KepaPage() {
   return (
     <>
       <ScrollProgress />
-      <Cursor />
       <Nav page="projects" />
 
       <main className="kepa-page">
@@ -74,7 +72,7 @@ export default function KepaPage() {
                 Kepa<span className="kepa-dot">.</span>
               </Reveal>
               <Reveal as="p" className="kepa-tagline" delay={0.1}>
-                Never get caught by a debit order again.
+                Never get caught by a debit order again
               </Reveal>
               <Reveal as="p" className="kepa-intro" delay={0.15}>
                 {kepaIntro}
@@ -119,7 +117,7 @@ export default function KepaPage() {
           <div className="wrap">
             <Reveal className="block-head">
               <h2 id="kepa-what">
-                What it does<span className="accent">.</span>
+                What it does
               </h2>
               <span className="cmd yellow">flutter run --release</span>
             </Reveal>
@@ -139,7 +137,7 @@ export default function KepaPage() {
           <div className="wrap">
             <Reveal className="block-head">
               <h2 id="kepa-screens">
-                Screens<span className="accent">.</span>
+                Screens
               </h2>
               <span className="cmd">dark mode · real phone</span>
             </Reveal>
@@ -164,7 +162,7 @@ export default function KepaPage() {
               </h2>
               <p className="kepa-private-lead">
                 Kepa was built to push back on apps that charge and track people for tracking their own subscriptions.
-                It stays free, and what you enter stays yours.
+                It stays free, and what you enter stays yours
               </p>
               <a className="btn btn-orange" href={KEPA_PRIVACY_PATH}>
                 Read the privacy policy <span aria-hidden="true">→</span>
@@ -182,7 +180,7 @@ export default function KepaPage() {
           <div className="wrap kepa-built">
             <Reveal className="block-head">
               <h2 id="kepa-built">
-                Built with<span className="accent">.</span>
+                Built with
               </h2>
               <span className="cmd">cat pubspec.yaml</span>
             </Reveal>

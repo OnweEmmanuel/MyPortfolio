@@ -51,8 +51,8 @@ export const editorSnippets = [
 ];
 
 export const marqueeRows = [
-  ["LARAVEL", "REACT", ".NET", "ANGULAR", "PHP", "TYPESCRIPT", "PYTHON", "DOCKER"],
-  ["APIs THAT SCALE", "UIs THAT FEEL GOOD", "BUGS THAT STAY FIXED", "SHIPPED ON TIME"],
+  ["Laravel", "React", ".NET", "Angular", "PHP", "TypeScript", "Python", "Docker"],
+  ["APIs that scale", "UIs that feel good", "Bugs that stay fixed", "Shipped on time"],
 ];
 
 // Words wrapped in *asterisks* are highlighted.
@@ -218,7 +218,7 @@ export const stackGroups = [
 export const projects = [
   {
     title: "Kepa",
-    badge: "ANDROID APP · 2026",
+    badge: "Android app · 2026",
     url: "kepa › android",
     shot: "kepa",
     description:
@@ -228,7 +228,7 @@ export const projects = [
   },
   {
     title: "InfoDocs",
-    badge: "PLATFORM · 2024–26",
+    badge: "Platform · 2024–26",
     url: "infodocs.co.za",
     shot: "api",
     description: "API endpoints, features, and UI for a company-secretarial SaaS. Data integrity first.",
@@ -236,7 +236,7 @@ export const projects = [
   },
   {
     title: "EasyCrypto",
-    badge: "PLATFORM · 2021–23",
+    badge: "Platform · 2021–23",
     url: "crypto.easyequities.co.za",
     shot: "crypto",
     description: "Full-stack work on EasyEquities' crypto platform: features, testing, and improvements as part of the dev team.",
@@ -244,7 +244,7 @@ export const projects = [
   },
   {
     title: "This portfolio",
-    badge: "LIVE · React + Motion",
+    badge: "Live · React + Motion",
     url: "emmanuel.onwe",
     shot: "portfolio",
     description: "Rebuilt from vanilla HTML to React, with a typing editor, scroll-driven art, and a working terminal.",
@@ -252,7 +252,7 @@ export const projects = [
   },
   {
     title: "Olutomi Kassim, digital CV",
-    badge: "CLIENT SITE",
+    badge: "Client site",
     url: "kassimd813-cloud.github.io",
     shot: "graph",
     description: "A digital CV for a Cape Town mathematics educator, designed around graphs and equations, with his teaching career plotted as a timeline.",
@@ -260,7 +260,7 @@ export const projects = [
   },
   {
     title: "Dice Roller",
-    badge: "ANDROID",
+    badge: "Android",
     url: "github › dice-roller",
     shot: "dice",
     description: "A small Android app from when I was learning mobile fundamentals.",
@@ -268,7 +268,7 @@ export const projects = [
   },
   {
     title: "Tic-tac-toe",
-    badge: "PYTHON · TERMINAL",
+    badge: "Python · terminal",
     url: "github › tick-tack-toe",
     shot: "tictactoe",
     description: "A two-player tic-tac-toe game that runs right in the terminal, written in Python.",
@@ -279,58 +279,52 @@ export const projects = [
 export const CODM_USERNAME = "STRANGER亗乂";
 
 export const nowPlaying = [
-  "▶ watching: Black Clover",
-  "📖 reading: Overgeared",
-  "🎮 dropping in: CODM BR",
-  "🏰 builders: all busy (always)",
+  "watching: Black Clover",
+  "reading: Overgeared",
+  "dropping in: CODM BR",
+  "builders: all busy (always)",
 ];
 
 // `facts` are shown as chips. Each stat is a joke "progress bar"; `value` can
 // go past 100, the bar just caps out.
 export const sideQuests = [
   {
-    icon: "🎯",
-    tag: "BR MAIN",
+    tag: "BR main",
     title: "Call of Duty: Mobile",
     text: "Battle Royale main, but I'll happily run Multiplayer too. I don't lose, I get lagged. Every win is pure skill; every death is my Wi-Fi's fault. Science.",
     facts: [`IGN: ${CODM_USERNAME}`, "21× Legendary BR", "7× Legendary MP"],
     stat: { label: "Blaming the ping", value: 97 },
   },
   {
-    icon: "🏰",
-    tag: "SINCE 2019",
+    tag: "Since 2019",
     title: "Clash of Clans",
     text: "Building since 2019, with a 'strategic break' in the middle. Now at Town Hall 17, still upgrading walls. The only roadmap I've seen that's longer than enterprise software.",
     facts: ["Town Hall 17", "Dragons", "Balloons", "Lightning spells"],
     stat: { label: "Free builders", value: 0 },
   },
   {
-    icon: "🏴‍☠️",
-    tag: "ANIME",
+    tag: "Anime",
     title: "One Piece → Black Clover",
     text: "All-time favourite: One Piece. 1,000+ episodes and somehow still too short. Currently on Black Clover: a guy with zero magic screams his way to the top. That's also my debugging strategy.",
     facts: ["Favourite: One Piece", "Watching: Black Clover"],
     stat: { label: "Belief the One Piece is real", value: 100 },
   },
   {
-    icon: "📚",
-    tag: "CHAPTER ADDICT",
+    tag: "Chapter addict",
     title: "Manga & manhwa",
     text: "Currently reading Overgeared and Tower of God. Team Urek Mazino, obviously. I read faster than they release, and cliffhangers should be a punishable offence.",
     facts: ["Overgeared", "Tower of God", "Urek Mazino supremacy"],
     stat: { label: "Patience for next chapter", value: 4 },
   },
   {
-    icon: "🎳",
-    tag: "UNDEFEATED-ISH",
+    tag: "Undefeated-ish",
     title: "Bowling",
     text: "I'm actually good at this one. I almost always win, so the occasional gutter ball is really just me being kind to everyone else.",
     facts: ["High score: 130+", "Almost always wins"],
     stat: { label: "Win rate (allegedly)", value: 90 },
   },
   {
-    icon: "⛳",
-    tag: "JUST FOR FUN",
+    tag: "Just for fun",
     title: "Mini golf",
     text: "Not good. Don't care. I have the most fun on the course while losing to people who 'never play'. Also, the windmill hole is rigged.",
     facts: ["Skill: questionable", "Fun: maxed out"],

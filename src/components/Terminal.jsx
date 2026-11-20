@@ -21,7 +21,7 @@ const COMMANDS = {
   ),
   onepiece: () => (
     <>
-      <span className="y">THE ONE PIECE IS REAL.</span> 🏴‍☠️ No further questions.
+      <span className="y">THE ONE PIECE IS REAL.</span> No further questions.
     </>
   ),
   whoami: () => "Emmanuel Onwe, full-stack engineer. Building for the web since 2019.",

@@ -30,22 +30,22 @@ export const kepaScreens = [
 
 export const kepaFeatures = [
   {
-    tag: "REMINDERS",
+    tag: "Reminders",
     title: "Know what's coming",
     text: "A nudge before every charge, at the time you choose. Exact alarms on Android, a reminder health check, and battery-saver help for Samsung, Xiaomi, Tecno and more.",
   },
   {
-    tag: "STATEMENT IMPORT",
+    tag: "Statement import",
     title: "Find what you forgot",
     text: "Pick a PDF or CSV bank statement and Kepa spots the charges that repeat. Locked statements work too. The file is read on the phone and never kept.",
   },
   {
-    tag: "VAULT",
+    tag: "Vault",
     title: "Warranties and renewals",
     text: "Snap a till slip and Kepa reads the store, date and items on the device. Licence discs, passports, insurance and contract upgrades, every year or every few.",
   },
   {
-    tag: "PAYDAY",
+    tag: "Payday",
     title: "Before payday",
     text: "Set the day you get paid and Home shows what still has to come out of this pay, overdue included.",
   },
