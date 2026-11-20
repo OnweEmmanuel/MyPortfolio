@@ -45,17 +45,6 @@ export default function Statement() {
             )}
           </p>
         </div>
-        <svg className="spinner-word" viewBox="0 0 200 200" aria-hidden="true">
-          <defs>
-            <path id="spinner-circle" d="M100 100 m-78 0 a78 78 0 1 1 156 0 a78 78 0 1 1 -156 0" />
-          </defs>
-          <text>
-            <textPath href="#spinner-circle">BUILD ✦ TEST ✦ SHIP ✦ REPEAT ✦ BUILD ✦ TEST ✦ SHIP ✦ </textPath>
-          </text>
-          <text className="arrow" x="100" y="112" textAnchor="middle">
-            ↻
-          </text>
-        </svg>
       </div>
     </section>
   );

@@ -11,7 +11,6 @@ import {
   pricingIntro,
   steps,
 } from "../../pricing.js";
-import Cursor from "../Cursor.jsx";
 import Footer from "../Footer.jsx";
 import MailLink from "../MailLink.jsx";
 import Nav from "../Nav.jsx";
@@ -51,7 +50,6 @@ export default function PricingPage() {
   return (
     <>
       <ScrollProgress />
-      <Cursor />
       <Nav page="pricing" />
 
       <main className="pricing-page">
@@ -59,7 +57,7 @@ export default function PricingPage() {
           <div className="wrap">
             <Reveal className="block-head">
               <h1>
-                Pricing<span className="accent">.</span>
+                Pricing
               </h1>
               <span className="cmd yellow">cat pricing.json</span>
             </Reveal>

@@ -220,7 +220,7 @@ export default function Projects() {
   return (
     <section className="block projects" id="projects">
       <div className="wrap">
-        <BlockHead title={<>Projects<span className="accent">.</span></>} cmd="ls ~/work" cmdClassName="yellow" />
+        <BlockHead title="Projects" cmd="ls ~/work" cmdClassName="yellow" />
         <div className="project-grid">
           {projects.map((project, i) => (
             <ProjectWindow key={project.title} project={project} index={i} />

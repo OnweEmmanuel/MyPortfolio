@@ -1,10 +1,8 @@
 import { motion, useReducedMotion } from "motion/react";
 
-const hidden = {
-  up: { opacity: 0, y: 60 },
-  left: { opacity: 0, x: 80 },
-  pop: { opacity: 0, scale: 0.85, rotate: -3 },
-};
+// Every variant is the same short fade and rise; the names stay so callers don't change.
+const rise = { opacity: 0, y: 8 };
+const hidden = { up: rise, left: rise, pop: rise };
 
 // Fades its children in the first time they scroll into view.
 export default function Reveal({ as = "div", variant = "up", delay = 0, children, ...props }) {
@@ -14,9 +12,9 @@ export default function Reveal({ as = "div", variant = "up", delay = 0, children
   return (
     <Component
       initial={reduceMotion ? false : hidden[variant]}
-      whileInView={{ opacity: 1, x: 0, y: 0, scale: 1, rotate: 0 }}
-      viewport={{ once: true, amount: 0.15 }}
-      transition={{ duration: 0.9, ease: [0.2, 0.8, 0.2, 1], delay }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.05, margin: "0px 0px 120px 0px" }}
+      transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1], delay: Math.min(delay, 0.24) }}
       {...props}
     >
       {children}

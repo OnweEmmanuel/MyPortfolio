@@ -13,7 +13,7 @@ export default function Contact() {
         <Reveal as="h2">
           Let's build
           <br />
-          something <em>loud.</em>
+          something <em>loud</em>
         </Reveal>
         <Reveal delay={0.1}>
           <MailLink className="contact-email">{EMAIL} ↗</MailLink>
