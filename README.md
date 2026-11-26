@@ -70,13 +70,9 @@ Almost all text lives in [`src/data.js`](src/data.js), so most updates don't tou
 | Scrolling bands | `marqueeRows` |
 | Pinned statement | `statement` (wrap a word in `*asterisks*` to make it orange) |
 
-### Kepa pages
+### Kepa
 
-Kepa (an Android app; its code is private) has its own page at [`/kepa/`](kepa/index.html) and a privacy policy at [`/kepa/privacy/`](kepa/privacy/index.html). Google Play links to the privacy policy, so that URL must keep working.
-
-- **Page text, features and screenshots:** [`src/kepa.js`](src/kepa.js). Set `KEPA_PLAY_URL` once Kepa is live and the page shows a "Get it on Google Play" button.
-- **Screenshots and icons:** `public/assets/kepa/`.
-- **Privacy policy:** [`kepa/privacy-policy.md`](kepa/privacy-policy.md), a copy of `docs/privacy-policy.md` from the Kepa repo (the app shows the same file). Copy it over whenever it changes. A small Vite plugin in [`vite.config.js`](vite.config.js) turns it into plain HTML at build time ([`kepa/markdown.js`](kepa/markdown.js)), so the page reads without JavaScript.
+Kepa (an Android app; its code is private) has its own website at [getkepa.pages.dev](https://getkepa.pages.dev/), repo `OnweEmmanuel/kepa-site`, including the privacy policy Google Play links to. The Kepa card here links there; its mini preview uses `public/assets/kepa/kepa-mark.png`.
 
 Prices live in [`src/pricing.js`](src/pricing.js). The homepage teaser and the [`/pricing/`](pricing/index.html) page both read from it, so change a price once and both update.
 
