@@ -124,6 +124,48 @@ function Shot({ type }) {
     );
   }
 
+  if (type === "kepa-site") {
+    // A mini version of getkepa.pages.dev's hero: headline, globe, and the
+    // reminder that drops in.
+    return (
+      <div className="shot shot-kepa-site">
+        <svg className="ks-globe" viewBox="0 0 200 200">
+          <circle cx="100" cy="100" r="92" />
+          <ellipse cx="100" cy="100" rx="60" ry="92" />
+          <ellipse cx="100" cy="100" rx="22" ry="92" />
+          <line x1="12" x2="188" y1="100" y2="100" />
+          <line x1="30" x2="170" y1="55" y2="55" />
+          <line x1="30" x2="170" y1="145" y2="145" />
+          <circle className="ks-city" cx="108" cy="150" r="3.5" />
+          <circle className="ks-city" cx="122" cy="138" r="3.5" />
+          <circle className="ks-city" cx="88" cy="96" r="3.5" />
+        </svg>
+        <span className="ks-nav">
+          <b className="ks-dot" />
+          kepa
+          <em>Join the test</em>
+        </span>
+        <span className="ks-title">
+          Never caught
+          <br />
+          by a debit
+          <br />
+          order <i>again.</i>
+        </span>
+        <motion.span
+          className="ks-notice"
+          initial={{ opacity: 0, y: -18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: 0.6, ease: [0.34, 1.56, 0.64, 1] }}
+        >
+          <b>Gym membership goes off tomorrow</b>
+          <small>R450.00 · debit order</small>
+        </motion.span>
+      </div>
+    );
+  }
+
   if (type === "portfolio") {
     return (
       <div className="shot shot-portfolio">

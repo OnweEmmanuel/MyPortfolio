@@ -227,6 +227,15 @@ export const projects = [
     link: { label: "see kepa", href: "https://getkepa.pages.dev/" },
   },
   {
+    title: "Kepa website",
+    badge: "Website · Astro · 2026",
+    url: "getkepa.pages.dev",
+    shot: "kepa-site",
+    description:
+      "Kepa's own site, separate from the app: a static Astro build with no trackers, a light and dark theme that swaps in matching app screenshots, and motion that steps aside for reduced-motion settings.",
+    link: { label: "view source", href: "https://github.com/OnweEmmanuel/kepa-site" },
+  },
+  {
     title: "InfoDocs",
     badge: "Platform · 2024–26",
     url: "infodocs.co.za",
