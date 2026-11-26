@@ -223,8 +223,8 @@ export const projects = [
     shot: "kepa",
     description:
       "A free, private tracker for subscriptions, debit orders, renewals and warranties, built in Flutter for West and Southern Africa. Reminders, bank-statement import and on-device slip scanning; nothing leaves the phone.",
-    // Opens the Kepa page on this site (same tab); the code is private.
-    link: { label: "see kepa", href: `${import.meta.env.BASE_URL}kepa/`, internal: true },
+    // Kepa has its own site (repo OnweEmmanuel/kepa-site); the app's code is private.
+    link: { label: "see kepa", href: "https://getkepa.pages.dev/" },
   },
   {
     title: "InfoDocs",
