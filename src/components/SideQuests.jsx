@@ -33,7 +33,7 @@ export default function SideQuests() {
         afk
       </span>
       <div className="wrap">
-        <BlockHead title={<>Side quests<span className="accent">.</span></>} cmd="cat ~/.hobbies" cmdClassName="yellow" />
+        <BlockHead title="Side quests" cmd="cat ~/.hobbies" cmdClassName="yellow" />
         <Reveal className="now-playing">
           {nowPlaying.map((item) => (
             <span key={item}>{item}</span>
@@ -43,9 +43,6 @@ export default function SideQuests() {
           {sideQuests.map((quest, i) => (
             <Reveal key={quest.title} as="article" className="quest" delay={(i % 3) * 0.1}>
               <div className="quest-top">
-                <span className="quest-icon" aria-hidden="true">
-                  {quest.icon}
-                </span>
                 <span className="quest-tag">{quest.tag}</span>
               </div>
               <h3>{quest.title}</h3>

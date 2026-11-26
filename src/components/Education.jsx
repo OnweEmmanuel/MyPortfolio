@@ -10,7 +10,7 @@ export default function Education() {
         learn()
       </span>
       <div className="wrap">
-        <BlockHead title={<>Education<span className="accent">.</span></>} cmd="cat education.log" cmdClassName="yellow" />
+        <BlockHead title="Education" cmd="cat education.log" cmdClassName="yellow" />
         <div className="edu-grid">
           {education.map((school, i) => (
             <Reveal
